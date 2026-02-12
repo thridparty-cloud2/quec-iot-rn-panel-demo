@@ -1,0 +1,13 @@
+# 忽略 node_modules 目录（默认 ESLint 已经忽略）
+node_modules/
+
+# 忽略 build 目录
+build/
+
+# 忽略 dist 目录
+dist/
+
+# 忽略某个具体的文件
+src/config.js
+
+*.json
