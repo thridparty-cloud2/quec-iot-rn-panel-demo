@@ -6,6 +6,7 @@ import {
   PAGE_ALARM_FAULT,
   PAGE_SETTING,
   PAGE_DEVICE_INFO,
+  PAGE_THEME_CONFIG,
 } from '../../../../config/route-page.config'
 import {useStyles} from './style'
 import {useNavigation} from '../../../../hooks'
@@ -34,6 +35,13 @@ const SECTIONS: SectionItem[] = [
     icon: '💻',
     color: '#6366F1',
     route: PAGE_DEVICE_INFO,
+  },
+  {
+    title: '主题配置',
+    desc: '主题配置页面示例',
+    icon: '🌻',
+    color: '#6366F1',
+    route: PAGE_THEME_CONFIG,
   },
   {
     title: '消息告警',

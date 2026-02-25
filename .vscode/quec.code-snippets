@@ -1,0 +1,14 @@
+{
+  "Quec StyleSheet": {
+    "prefix": "qstyle",
+    "scope": "typescript,typescriptreact",
+    "body": [
+      "import {StyleSheet} from '@quec/panel-components-kit'",
+      "",
+      "export const useStyles = StyleSheet(theme => ({",
+      "  $0",
+      "}))"
+    ],
+    "description": "创建 @quec/panel-components-kit 主题感知样式"
+  }
+}

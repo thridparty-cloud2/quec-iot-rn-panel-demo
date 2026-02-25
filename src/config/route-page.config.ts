@@ -29,3 +29,7 @@ export const PAGE_WELCOME = 'WelcomePage'
  * 设备信息页面
  */
 export const PAGE_DEVICE_INFO = 'DeviceInfoPage'
+/**
+ * 主页配置页面
+ */
+export const PAGE_THEME_CONFIG = 'ThemeConfigPage';

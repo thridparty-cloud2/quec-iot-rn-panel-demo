@@ -14,6 +14,7 @@ import SettingPage from '../page/setting-page'
 import WelcomePage from '../page/welcome-page'
 import {useTheme} from '../style/themes'
 import DeviceInfoPage from '../page/device-info-page'
+import ThemeConfigPage from '../page/theme-config-page'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -40,13 +41,9 @@ export const PageRoutes = {
   DeviceInfoPage: new PageRouterImp(PAGES.PAGE_DEVICE_INFO, DeviceInfoPage, {
     headerShown: false,
   }),
-  // ProductDescriptionPage: new PageRouterImp(
-  //     PAGES.PAGE_PRODUCT_MANUAL,
-  //     ProductManualPage,  // 这个组件在setting-component 里面
-  //     {
-  //         headerShown: false,
-  //     },
-  // ),
+  ThemeConfigPage: new PageRouterImp(PAGES.PAGE_THEME_CONFIG, ThemeConfigPage, {
+    headerShown: false,
+  }),
 }
 
 export default function AppContainer() {

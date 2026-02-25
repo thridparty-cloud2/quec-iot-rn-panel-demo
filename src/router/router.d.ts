@@ -33,4 +33,5 @@ export type RootStackParamList = {
   [PAGES.PAGE_PRODUCT_MANUAL]: undefined
   [PAGES.PAGE_WELCOME]: undefined
   [PAGES.PAGE_DEVICE_INFO]: undefined
+    [PAGES.PAGE_THEME_CONFIG]: undefined;
 }
