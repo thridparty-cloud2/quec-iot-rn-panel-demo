@@ -148,15 +148,21 @@ const Main: FC<MainProps> = () => {
         )
 
         if (booleanModel) {
-            write(booleanModel, value.toString(), {
-                success() {
-                    console.log('布尔型物模型下发成功')
+            write(
+                {
+                    data: booleanModel,
+                    value: value.toString(),
                 },
-                fail() {
-                    console.log('布尔型物模型下发失败')
-                    Alert.alert('提示', '布尔型物模型下发失败')
+                {
+                    success() {
+                        console.log('布尔型物模型下发成功')
+                    },
+                    fail() {
+                        console.log('布尔型物模型下发失败')
+                        Alert.alert('提示', '布尔型物模型下发失败')
+                    },
                 },
-            })
+            )
         } else {
             Alert.alert(
                 t('main_page_alert_tip'),
@@ -174,18 +180,24 @@ const Main: FC<MainProps> = () => {
         )
 
         if (numberModel) {
-            write(numberModel, value.toString(), {
-                success() {
-                    console.log('数值型物模型下发成功')
+            write(
+                {
+                    data: numberModel,
+                    value: value.toString(),
                 },
-                fail() {
-                    console.log('数值型物模型下发失败')
-                    Alert.alert(
-                        t('main_page_alert_tip'),
-                        t('main_page_numeric_send_fail'),
-                    )
+                {
+                    success() {
+                        console.log('数值型物模型下发成功')
+                    },
+                    fail() {
+                        console.log('数值型物模型下发失败')
+                        Alert.alert(
+                            t('main_page_alert_tip'),
+                            t('main_page_numeric_send_fail'),
+                        )
+                    },
                 },
-            })
+            )
         } else {
             Alert.alert(
                 t('main_page_alert_tip'),
@@ -210,22 +222,28 @@ const Main: FC<MainProps> = () => {
         )
 
         if (textModel) {
-            write(textModel, textValue, {
-                success() {
-                    console.log('文本型物模型下发成功')
-                    Alert.alert(
-                        t('main_page_alert_tip'),
-                        t('main_page_text_send_success'),
-                    )
+            write(
+                {
+                    data: textModel,
+                    value: textValue,
                 },
-                fail() {
-                    console.log('文本型物模型下发失败')
-                    Alert.alert(
-                        t('main_page_alert_tip'),
-                        t('main_page_text_send_fail'),
-                    )
+                {
+                    success() {
+                        console.log('文本型物模型下发成功')
+                        Alert.alert(
+                            t('main_page_alert_tip'),
+                            t('main_page_text_send_success'),
+                        )
+                    },
+                    fail() {
+                        console.log('文本型物模型下发失败')
+                        Alert.alert(
+                            t('main_page_alert_tip'),
+                            t('main_page_text_send_fail'),
+                        )
+                    },
                 },
-            })
+            )
         } else {
             Alert.alert(t('main_page_alert_tip'), t('main_page_text_not_found'))
         }
@@ -240,18 +258,24 @@ const Main: FC<MainProps> = () => {
         )
 
         if (enumModel) {
-            write(enumModel, value, {
-                success() {
-                    console.log('枚举型物模型下发成功')
+            write(
+                {
+                    data: enumModel,
+                    value: value,
                 },
-                fail() {
-                    console.log('枚举型物模型下发失败')
-                    Alert.alert(
-                        t('main_page_alert_tip'),
-                        t('main_page_enum_send_fail'),
-                    )
+                {
+                    success() {
+                        console.log('枚举型物模型下发成功')
+                    },
+                    fail() {
+                        console.log('枚举型物模型下发失败')
+                        Alert.alert(
+                            t('main_page_alert_tip'),
+                            t('main_page_enum_send_fail'),
+                        )
+                    },
                 },
-            })
+            )
         } else {
             Alert.alert(t('main_page_alert_tip'), t('main_page_enum_not_found'))
         }
@@ -281,22 +305,27 @@ const Main: FC<MainProps> = () => {
         })
 
         if (writeItems.length > 0) {
-            write(writeItems, {
-                success() {
-                    console.log('多物模型下发成功')
-                    Alert.alert(
-                        t('main_page_alert_tip'),
-                        t('main_page_multi_send_success'),
-                    )
+            write(
+                {
+                    data: writeItems,
                 },
-                fail() {
-                    console.log('多物模型下发失败')
-                    Alert.alert(
-                        t('main_page_alert_tip'),
-                        t('main_page_multi_send_fail'),
-                    )
+                {
+                    success() {
+                        console.log('多物模型下发成功')
+                        Alert.alert(
+                            t('main_page_alert_tip'),
+                            t('main_page_multi_send_success'),
+                        )
+                    },
+                    fail() {
+                        console.log('多物模型下发失败')
+                        Alert.alert(
+                            t('main_page_alert_tip'),
+                            t('main_page_multi_send_fail'),
+                        )
+                    },
                 },
-            })
+            )
         } else {
             Alert.alert(
                 t('main_page_alert_tip'),
