@@ -4,13 +4,15 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack'
 import {useStyles} from './style'
 import QuecHeader from '../../components/quec-header'
 import {RootStackParamList} from '../../router/router'
-import numberDetailCell from './components/number-detail-cell'
-import {DATATYPE_DOUBLE, DATATYPE_FLOAT, DATATYPE_INT} from '@quec/panel-model-kit'
+import NumberDetailCell from './components/number-detail-cell'
+import EnumDetailCell from './components/enum-detail-cell'
+import {DATATYPE_DOUBLE, DATATYPE_ENUM, DATATYPE_FLOAT, DATATYPE_INT} from '@quec/panel-model-kit'
 
 const TslDetailComponentMap: any = {
-  [DATATYPE_INT]: numberDetailCell,
-  [DATATYPE_FLOAT]: numberDetailCell,
-  [DATATYPE_DOUBLE]: numberDetailCell,
+  [DATATYPE_INT]: NumberDetailCell,
+  [DATATYPE_FLOAT]: NumberDetailCell,
+  [DATATYPE_DOUBLE]: NumberDetailCell,
+  [DATATYPE_ENUM]: EnumDetailCell,
 }
 
 type Props = NativeStackScreenProps<RootStackParamList, 'DpsTslDetailPage'>

@@ -1,14 +1,17 @@
 import React, {memo} from 'react'
-import {Text, View} from 'react-native'
+import {Text, TouchableOpacity, View} from 'react-native'
 import {EnumTSLModel, SUBTYPE_R} from '@quec/panel-model-kit'
 import {useStyles} from './style'
+import {useNavigation} from '../../../../hooks'
+import {PAGE_DPS_TSL_DETAIL} from '../../../../config/route-page.config'
 
 interface EnumTslProps {
   tsl: EnumTSLModel
   dpsKey: string
 }
 
-const EnumTslCell: React.FC<EnumTslProps> = ({tsl}) => {
+const EnumTslCell: React.FC<EnumTslProps> = ({tsl, dpsKey}) => {
+  const navigation = useNavigation()
   const styles = useStyles()
   const isReadonly = tsl.subType === SUBTYPE_R
   const currentVal = String(tsl.attributeValue ?? '')
@@ -16,7 +19,13 @@ const EnumTslCell: React.FC<EnumTslProps> = ({tsl}) => {
   const currentLabel = tsl.valueName?.[currentVal] ?? currentVal
 
   return (
-    <View style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      activeOpacity={0.8}
+      onPress={() => {
+        navigation.navigate(PAGE_DPS_TSL_DETAIL, {tsl, dpsKey})
+      }}
+    >
       {/* 头部：名称 + 类型标签 */}
       <View style={styles.header}>
         <Text style={styles.name}>{tsl.name}</Text>
@@ -57,7 +66,7 @@ const EnumTslCell: React.FC<EnumTslProps> = ({tsl}) => {
         <Text style={styles.footerText}>选项数: {options.length}</Text>
         <Text style={styles.footerText}>ID: {tsl.id}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
