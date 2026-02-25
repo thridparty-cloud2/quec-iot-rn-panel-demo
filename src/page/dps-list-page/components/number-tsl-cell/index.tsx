@@ -7,9 +7,9 @@ import {PAGE_DPS_TSL_DETAIL} from '../../../../config/route-page.config'
 
 interface NumberTslProps {
   tsl: NumberTSLModel
+  dpsKey: string
 }
-
-const NumberTslCell: React.FC<NumberTslProps> = ({tsl}) => {
+const NumberTslCell: React.FC<NumberTslProps> = ({tsl, dpsKey}) => {
   const navigation = useNavigation()
   const styles = useStyles()
   const min = tsl.min ?? 0
@@ -23,7 +23,7 @@ const NumberTslCell: React.FC<NumberTslProps> = ({tsl}) => {
       style={styles.card}
       activeOpacity={0.8}
       onPress={() => {
-        navigation.navigate(PAGE_DPS_TSL_DETAIL, {tsl})
+        navigation.navigate(PAGE_DPS_TSL_DETAIL, {tsl, dpsKey})
       }}
     >
       {/* 头部：名称 + 类型标签 */}

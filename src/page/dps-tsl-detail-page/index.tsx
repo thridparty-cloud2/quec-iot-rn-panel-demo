@@ -18,8 +18,9 @@ type Props = NativeStackScreenProps<RootStackParamList, 'DpsTslDetailPage'>
 export default function DpsTslDetailPage(props: Props) {
   const styles = useStyles()
   const tsl = props.route.params?.tsl
+  const dpsKey = props.route.params?.dpsKey
 
-  if (!tsl) {
+  if (!tsl || !dpsKey) {
     return
   }
 
@@ -33,7 +34,7 @@ export default function DpsTslDetailPage(props: Props) {
     <View style={styles.container}>
       <QuecHeader title={tsl.name} />
       <ScrollView>
-        <Component tsl={tsl} />
+        <Component tsl={tsl} dpsKey={dpsKey} />
       </ScrollView>
     </View>
   )

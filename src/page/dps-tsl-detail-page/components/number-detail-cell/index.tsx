@@ -6,12 +6,15 @@ import SyntaxHighlighter from 'react-native-syntax-highlighter'
 import {obsidian} from 'react-syntax-highlighter/styles/hljs'
 import {useStyles} from './style'
 import {useTheme} from '../../../../style/themes'
+import {useDpsModel} from '../../../../App'
 
 interface NumberDetailCellProps {
   tsl: NumberTSLModel
+  dpsKey: string
 }
 
-const NumberDetailCell: React.FC<NumberDetailCellProps> = ({tsl}) => {
+const NumberDetailCell: React.FC<NumberDetailCellProps> = ({tsl, dpsKey}) => {
+  const dpsModel = useDpsModel()
   const styles = useStyles()
   const theme = useTheme()
   const tslWriter = useTslWriter()
@@ -28,7 +31,7 @@ const MyComponent = () => {
 
   const handleWrite = () => {
     tslWriter({
-      data: dpsModel['${tsl.code}'],
+      data: dpsModel.${dpsKey},
       value: ${value},
     })
   }
@@ -38,8 +41,12 @@ const MyComponent = () => {
   }, [tsl.code, value])
 
   useEffect(() => {
+    const tsl = dpsModel[dpsKey as keyof typeof dpsModel]
+    if (!tsl) {
+      return
+    }
     setValue(tsl.attributeValue)
-  }, [tsl.attributeValue])
+  }, [dpsModel, dpsKey])
 
   return (
     <View style={styles.container}>
@@ -76,7 +83,7 @@ const MyComponent = () => {
         </View>
         <View style={[styles.infoRow, styles.infoRowLast]}>
           <Text style={styles.infoLabel}>单位 (unit)</Text>
-          <Text style={styles.infoValue}>{(tsl as any).unit || '无'}</Text>
+          <Text style={styles.infoValue}>{(tsl as any).unit || '--'}</Text>
         </View>
       </View>
 

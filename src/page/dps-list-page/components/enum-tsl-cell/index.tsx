@@ -5,6 +5,7 @@ import {useStyles} from './style'
 
 interface EnumTslProps {
   tsl: EnumTSLModel
+  dpsKey: string
 }
 
 const EnumTslCell: React.FC<EnumTslProps> = ({tsl}) => {

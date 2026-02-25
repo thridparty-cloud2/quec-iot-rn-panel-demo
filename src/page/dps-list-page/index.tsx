@@ -30,15 +30,15 @@ export default function DpsListPage() {
     <View style={styles.container}>
       <QuecHeader />
       <FlatList
-        data={Object.values(dpsModel).filter(Boolean)}
-        keyExtractor={(item: any) => String(item.code || item.id)}
+        data={Object.entries(dpsModel).filter(([_, tsl]) => Boolean(tsl))}
+        keyExtractor={([key, tsl]: any) => String(tsl.code || tsl.id || key)}
         showsVerticalScrollIndicator={false}
-        renderItem={({item}) => {
-          const Component = TslComponentMap[item.dataType]
+        renderItem={({item: [key, tsl]}) => {
+          const Component = TslComponentMap[(tsl as any).dataType]
           if (!Component) {
             return null
           }
-          return <Component tsl={item} />
+          return <Component dpsKey={key} tsl={tsl} />
         }}
       />
     </View>

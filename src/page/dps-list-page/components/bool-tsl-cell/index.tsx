@@ -5,6 +5,7 @@ import {useStyles} from './style'
 
 interface BoolTslProps {
   tsl: BooleanTSLModel
+  dpsKey: string
 }
 
 const BoolTslCell: React.FC<BoolTslProps> = ({tsl}) => {

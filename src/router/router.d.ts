@@ -40,5 +40,6 @@ export type RootStackParamList = {
     | undefined
     | {
         tsl: TSLModel | undefined
+        dpsKey: string
       }
 }
