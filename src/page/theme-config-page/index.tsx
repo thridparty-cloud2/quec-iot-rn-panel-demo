@@ -17,7 +17,7 @@ const BRAND_COLORS = [
 
 export default function ThemeConfigPage() {
   const styles = useStyles()
-  const preference = useContext(PreferencesContext)
+  const preference: any = useContext(PreferencesContext)
   const isDark = preference?.theme?.dark ?? false
   const currentBrand = preference?.theme?.colors?.brand?.primary ?? '#6366F1'
   const [selectedColor, setSelectedColor] = useState(currentBrand)

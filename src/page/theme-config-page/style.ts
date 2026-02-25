@@ -33,6 +33,7 @@ export const useStyles = StyleSheet(theme => ({
     marginBottom: 14,
   },
   previewEmoji: {
+    color: '#000',
     fontSize: 28,
   },
   previewTitle: {
@@ -75,6 +76,7 @@ export const useStyles = StyleSheet(theme => ({
     position: 'relative',
   },
   modeEmoji: {
+    color: '#000',
     fontSize: 28,
     marginBottom: 8,
   },
@@ -129,6 +131,16 @@ export const useStyles = StyleSheet(theme => ({
     fontSize: theme.size.text.T1,
     color: theme.colors.text.tertiary,
   },
+  customColorCircle: {
+    backgroundColor: 'transparent',
+    borderWidth: 2,
+    borderStyle: 'dashed',
+  },
+  customColorPlus: {
+    fontSize: theme.size.text.T5,
+    fontWeight: '300',
+    color: theme.colors.text.tertiary,
+  },
 
   // ── 效果预览 ──
   previewRow: {
@@ -160,6 +172,82 @@ export const useStyles = StyleSheet(theme => ({
     color: '#FFFFFF',
     fontSize: theme.size.text.T3,
     fontWeight: '600',
+  },
+
+  // ── 弹窗 ──
+  modal: {
+    justifyContent: 'flex-end',
+    margin: 0,
+  },
+  modalContent: {
+    backgroundColor: theme.dark ? '#1E1E2E' : '#FFFFFF',
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    paddingBottom: 36,
+  },
+  modalTitle: {
+    fontSize: theme.size.text.T5,
+    fontWeight: '700',
+    color: theme.colors.text.primary,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  picker: {
+    gap: 16,
+  },
+  pickerPanel: {
+    borderRadius: 12,
+    height: 200,
+  },
+  pickerSlider: {
+    borderRadius: 8,
+    height: 32,
+  },
+  pickerPreviewRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 8,
+  },
+  pickerPreviewText: {
+    fontSize: theme.size.text.T3,
+    fontWeight: '600',
+    color: theme.colors.text.primary,
+  },
+  pickerPreviewSwatch: {
+    width: 32,
+    height: 32,
+    borderRadius: 8,
+  },
+  modalActions: {
+    flexDirection: 'row',
+    gap: 12,
+    marginTop: 20,
+  },
+  modalCancelBtn: {
+    flex: 1,
+    paddingVertical: 14,
+    borderRadius: 12,
+    alignItems: 'center',
+    backgroundColor: theme.dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.05)',
+  },
+  modalCancelText: {
+    fontSize: theme.size.text.T3,
+    fontWeight: '600',
+    color: theme.colors.text.secondary,
+  },
+  modalConfirmBtn: {
+    flex: 1,
+    paddingVertical: 14,
+    borderRadius: 12,
+    alignItems: 'center',
+  },
+  modalConfirmText: {
+    fontSize: theme.size.text.T3,
+    fontWeight: '600',
+    color: '#FFFFFF',
   },
 
   // ── 底部 ──

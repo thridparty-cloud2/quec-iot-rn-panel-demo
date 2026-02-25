@@ -1200,16 +1200,6 @@
   resolved "http://192.168.23.184:4873/@quec%2fpanel-component-customer-attrs/-/panel-component-customer-attrs-1.1.3.tgz#5c30e6a524ceb6a5a7abb26e896591f6f37158b9"
   integrity sha512-pvV2JO+8J6ra614HgXx6eBtx+myS1HZyay3lcy7xlm3Hlt+WCZubW8cNI6Q/SPk07/AwVl+KBCD3mmpQZllcWg==
 
-"@quec/panel-components-kit@0.1.1":
-  version "0.1.1"
-  resolved "http://192.168.23.184:4873/@quec%2fpanel-components-kit/-/panel-components-kit-0.1.1.tgz#4c5957f3796ddbf1aa15bbcf149a5712322d6b28"
-  integrity sha512-pIq+/6iQToO3wD1U1zSBYCrT/ZZtWuspbiMBWezK7tKeAd4korIm4kf3zjTsLTQww1+8quxgZJ7Md4tdO15MsQ==
-  dependencies:
-    lottie-react-native "5.1.4"
-    moment "2.30.1"
-    react-native-shadow-2 "7.1.1"
-    react-native-svg "12.4.4"
-
 "@quec/panel-components-kit@0.2.0-beta.1":
   version "0.2.0-beta.1"
   resolved "http://192.168.23.184:4873/@quec%2fpanel-components-kit/-/panel-components-kit-0.2.0-beta.1.tgz#0d36b5451e2af56bd24d6db9b4791aa7b7744ea0"
@@ -6995,6 +6985,13 @@ react-is@^19.1.0:
   resolved "http://192.168.23.184:4873/react-is/-/react-is-19.2.4.tgz#a080758243c572ccd4a63386537654298c99d135"
   integrity sha512-W+EWGn2v0ApPKgKKCy/7s7WHXkboGcsrXE+2joLyVxkbyVQfO3MUEaUQDHoSmb8TFFrSKYa9mw64WZHNHSDzYA==
 
+react-native-animatable@1.4.0:
+  version "1.4.0"
+  resolved "http://192.168.23.184:4873/react-native-animatable/-/react-native-animatable-1.4.0.tgz#05a259e1566081ce7d3f6fba1e92edc65f5c6160"
+  integrity sha512-DZwaDVWm2NBvBxf7I0wXKXLKb/TxDnkV53sWhCvei1pRyTX3MVFpkvdYBknNBqPrxYuAIlPxEp7gJOidIauUkw==
+  dependencies:
+    prop-types "^15.8.1"
+
 react-native-blob-util@0.16.2:
   version "0.16.2"
   resolved "http://192.168.23.184:4873/react-native-blob-util/-/react-native-blob-util-0.16.2.tgz#d7ad25675b33908884a95159280abd11ca2b109f"
@@ -7052,6 +7049,13 @@ react-native-localize@2.2.3:
   version "2.2.3"
   resolved "http://192.168.23.184:4873/react-native-localize/-/react-native-localize-2.2.3.tgz#9666becaea5d6b8d968f037d82b2220ba52c463b"
   integrity sha512-DoEEk7s4p0BnCU2zS2yzC+bEUWSFhcuXoLidgHag1EQkaXJLiNos661h8nGZvWWrVK6zE+Cl2319bqG3FidkJQ==
+
+react-native-modal@14.0.0-rc.1:
+  version "14.0.0-rc.1"
+  resolved "http://192.168.23.184:4873/react-native-modal/-/react-native-modal-14.0.0-rc.1.tgz#d193af884c910ec34a4953508c7656b5fc83d7d4"
+  integrity sha512-v5pvGyx1FlmBzdHyPqBsYQyS2mIJhVmuXyNo5EarIzxicKhuoul6XasXMviGcXboEUT0dTYWs88/VendojPiVw==
+  dependencies:
+    react-native-animatable "1.4.0"
 
 react-native-pdf@6.6.2:
   version "6.6.2"
