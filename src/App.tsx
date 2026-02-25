@@ -6,7 +6,13 @@ import {
 } from '@quec/panel-device-kit'
 import {createDpsModelStore} from '@quec/panel-model-kit'
 import React, {FC, useEffect, useMemo, useState} from 'react'
-import {deepmergeTheme, ThemeProvider, PreferencesContext} from '@quec/panel-components-kit'
+import {
+  deepmergeTheme,
+  ThemeProvider,
+  PreferencesContext,
+  QuecTheme,
+  DeepPartial,
+} from '@quec/panel-components-kit'
 import QuecRNUserModule from '@quec/rn-user-module/src/module'
 import {GlobalManager} from '@quec/panel-sdk/managers'
 
@@ -75,6 +81,8 @@ const App: FC<Props> = props => {
   const preference = useMemo(() => {
     return {
       toggleDarkMode: () => setIsDarkMode(old => !old),
+      setTheme: (theme: DeepPartial<QuecTheme>) =>
+        setTheme(deepmergeTheme(isDarkMode ? DarkTheme : LightTheme, theme)),
       theme,
     }
   }, [theme])
