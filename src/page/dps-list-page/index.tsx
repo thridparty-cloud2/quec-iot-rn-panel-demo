@@ -1,5 +1,5 @@
 import React from 'react'
-import {ScrollView, View} from 'react-native'
+import {FlatList, View} from 'react-native'
 import {
   DATATYPE_BOOL,
   DATATYPE_DOUBLE,
@@ -26,27 +26,21 @@ export default function DpsListPage() {
   const dpsModel = useDpsModel()
   const styles = useStyles()
 
-  console.log('dps', dpsModel.comfort)
-
   return (
     <View style={styles.container}>
       <QuecHeader />
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {Object.entries(dpsModel).map(([, tsl], idx) => {
-          if (!tsl) {
-            return null
-          }
-          const Component = TslComponentMap[tsl.dataType]
+      <FlatList
+        data={Object.values(dpsModel).filter(Boolean)}
+        keyExtractor={(item: any) => String(item.code || item.id)}
+        showsVerticalScrollIndicator={false}
+        renderItem={({item}) => {
+          const Component = TslComponentMap[item.dataType]
           if (!Component) {
             return null
           }
-          return (
-            <View key={idx}>
-              <Component tsl={tsl} />
-            </View>
-          )
-        })}
-      </ScrollView>
+          return <Component tsl={item} />
+        }}
+      />
     </View>
   )
 }

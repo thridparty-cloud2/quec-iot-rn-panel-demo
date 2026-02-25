@@ -12,12 +12,11 @@ const BoolTslCell: React.FC<BoolTslProps> = ({tsl}) => {
   const isReadonly = tsl.subType === SUBTYPE_R
   const val = String(tsl.attributeValue) === 'true'
   const currentValStr = String(val)
-  const currentLabel = tsl.valueName?.[currentValStr] ?? (val ? '打开' : '关闭')
+  const currentLabel = tsl.valueName?.[currentValStr] ?? (val ? 'true' : 'false')
 
-  // BOOL 类型一般有两个固定选项: true / false
   const options = tsl.specs?.filter((s: any) => s.dataType === 'BOOL') ?? [
-    {value: 'true', name: tsl.valueName?.['true'] ?? '打开'},
-    {value: 'false', name: tsl.valueName?.['false'] ?? '关闭'},
+    {value: 'true', name: tsl.valueName?.['true'] ?? 'true'},
+    {value: 'false', name: tsl.valueName?.['false'] ?? 'false'},
   ]
 
   return (
@@ -43,7 +42,6 @@ const BoolTslCell: React.FC<BoolTslProps> = ({tsl}) => {
       {/* 当前值 */}
       <Text style={styles.currentValue}>{currentLabel}</Text>
 
-      {/* 选项列表 (类似 ENUM 的展现方式) */}
       <View style={styles.optionGrid}>
         {options.map((opt: any) => {
           const isActive = String(opt.value) === currentValStr
