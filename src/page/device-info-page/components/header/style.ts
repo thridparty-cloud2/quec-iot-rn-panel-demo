@@ -9,7 +9,7 @@ export const useStyles = StyleSheet(theme => ({
     padding: 16,
     marginBottom: 16,
     borderWidth: 1,
-    borderColor: theme.colors.border.default,
+    borderColor: theme.colors.brand.primaryLight,
   },
   deviceLogo: {
     width: 60,
