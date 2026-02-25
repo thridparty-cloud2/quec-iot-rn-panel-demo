@@ -21,3 +21,7 @@ export const PAGE_PRODUCT_MANUAL = 'ProductManualPage'
  * 首页
  */
 export const PAGE_MAIN = 'MainPage'
+/**
+ * 欢迎页
+ */
+export const PAGE_WELCOME = 'WelcomePage'

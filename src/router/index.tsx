@@ -11,6 +11,7 @@ import {isIOS} from '../style/constant'
 import {PageRouterImp} from '../types/route'
 import type {RootStackParamList} from './router'
 import SettingPage from '../page/setting-page'
+import WelcomePage from '../page/welcome-page'
 import {useTheme} from '../style/themes'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -30,6 +31,9 @@ export const PageRoutes = {
     },
   ),
   MainPage: new PageRouterImp(PAGES.PAGE_MAIN, Main, {
+    headerShown: false,
+  }),
+  WelcomePage: new PageRouterImp(PAGES.PAGE_WELCOME, WelcomePage, {
     headerShown: false,
   }),
   // ProductDescriptionPage: new PageRouterImp(
@@ -64,7 +68,7 @@ export default function AppContainer() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={PAGES.PAGE_MAIN}
+        initialRouteName={PAGES.PAGE_WELCOME}
         // @ts-ignore
         detachInactiveScreens={false}
         screenOptions={() => screenDefaults}
