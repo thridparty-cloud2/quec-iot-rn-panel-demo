@@ -1,7 +1,7 @@
 {
-  "name": "quec-panel-template",
-  "version": "2.0.0",
-  "description": "移远RN面板模版-2.0-内部版本",
+  "name": "quec-panel-example",
+  "version": "1.0.0",
+  "description": "example for quec panel",
   "scripts": {
     "adb": "adb reverse tcp:8081 tcp:8081",
     "android": "react-native run-android",
