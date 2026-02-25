@@ -1,6 +1,6 @@
 import React, {memo} from 'react'
 import {Text, View} from 'react-native'
-import {NumberTSLModel, SUBTYPE_R, BooleanTSLModel} from '@quec/panel-model-kit'
+import {NumberTSLModel, SUBTYPE_R} from '@quec/panel-model-kit'
 import {useStyles} from './style'
 
 interface NumberTslProps {
