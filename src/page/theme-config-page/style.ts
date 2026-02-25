@@ -96,11 +96,10 @@ export const useStyles = StyleSheet(theme => ({
   modeDivider: {
     width: 1,
     height: 40,
-    backgroundColor: theme.dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)',
+    backgroundColor: theme.colors.border.divider,
     alignSelf: 'center',
   },
 
-  // ── 主题色选择 ──
   colorGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -121,7 +120,7 @@ export const useStyles = StyleSheet(theme => ({
   },
   colorCircleSelected: {
     borderWidth: 3,
-    borderColor: theme.dark ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.2)',
+    borderColor: theme.colors.border.default,
   },
   colorCheck: {
     color: '#FFFFFF',
@@ -133,7 +132,6 @@ export const useStyles = StyleSheet(theme => ({
     color: theme.colors.text.tertiary,
   },
 
-  // ── 色块展示行 ──
   swatchRow: {
     flexDirection: 'row',
     marginBottom: 8,
@@ -167,10 +165,9 @@ export const useStyles = StyleSheet(theme => ({
     fontFamily: 'monospace',
   },
 
-  // ── 通用 Demo ──
   demoDivider: {
     height: 1,
-    backgroundColor: theme.dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+    backgroundColor: theme.colors.border.divider,
     marginVertical: 12,
   },
   demoLabel: {
@@ -187,7 +184,6 @@ export const useStyles = StyleSheet(theme => ({
     marginTop: 10,
   },
 
-  // ── Brand Demo ──
   demoButton: {
     borderRadius: 10,
     paddingVertical: 10,
@@ -199,7 +195,6 @@ export const useStyles = StyleSheet(theme => ({
     borderRadius: 6,
   },
 
-  // ── Background Demo ──
   bgDemoStack: {
     marginBottom: 10,
   },
@@ -217,7 +212,6 @@ export const useStyles = StyleSheet(theme => ({
     borderWidth: 1,
   },
 
-  // ── Status Demo ──
   statusDemoRow: {
     flexDirection: 'row',
     gap: 8,
@@ -237,7 +231,6 @@ export const useStyles = StyleSheet(theme => ({
     borderRadius: 3,
   },
 
-  // ── Text Demo ──
   textDemoList: {
     gap: 6,
   },
@@ -248,7 +241,6 @@ export const useStyles = StyleSheet(theme => ({
     marginTop: 4,
   },
 
-  // ── Border Demo ──
   borderDemoRow: {
     flexDirection: 'row',
     gap: 12,
@@ -266,7 +258,6 @@ export const useStyles = StyleSheet(theme => ({
     marginVertical: 8,
   },
 
-  // ── Overlay Demo ──
   overlayDemoRow: {
     flexDirection: 'row',
     gap: 10,
@@ -294,7 +285,6 @@ export const useStyles = StyleSheet(theme => ({
     zIndex: 1,
   },
 
-  // ── 底部 ──
   bottomSpacer: {
     height: 40,
   },
