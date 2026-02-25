@@ -13,16 +13,15 @@ export const useStyles = StyleSheet(theme => ({
     paddingTop: 12,
   },
 
-  // ── 预览卡片 ──
   previewCard: {
     alignItems: 'center',
-    backgroundColor: theme.dark ? 'rgba(99,102,241,0.08)' : 'rgba(99,102,241,0.04)',
+    backgroundColor: theme.colors.background.secondary,
     borderRadius: 20,
     paddingVertical: 28,
     paddingHorizontal: 20,
     marginBottom: 20,
     borderWidth: 1,
-    borderColor: theme.dark ? 'rgba(99,102,241,0.15)' : 'rgba(99,102,241,0.08)',
+    borderColor: theme.colors.border.default,
   },
   previewCircle: {
     width: 64,
@@ -61,12 +60,12 @@ export const useStyles = StyleSheet(theme => ({
 
   // ── 通用卡片 ──
   card: {
-    backgroundColor: theme.dark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.02)',
+    backgroundColor: theme.colors.background.secondary,
     borderRadius: 16,
     padding: 16,
     marginBottom: 16,
     borderWidth: 1,
-    borderColor: theme.dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+    borderColor: theme.colors.border.dividerLight,
   },
 
   // ── 外观模式 ──
@@ -146,10 +145,10 @@ export const useStyles = StyleSheet(theme => ({
     borderRadius: 10,
     marginBottom: 4,
     borderWidth: 1,
-    borderColor: theme.dark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)',
+    borderColor: theme.colors.border.default,
   },
   swatchLabel: {
-    fontSize: 10,
+    fontSize: theme.size.text.T1,
     color: theme.colors.text.secondary,
     marginBottom: 1,
   },
@@ -203,7 +202,7 @@ export const useStyles = StyleSheet(theme => ({
     padding: 10,
     marginTop: 6,
     borderWidth: 1,
-    borderColor: theme.dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+    borderColor: theme.colors.border.dividerLight,
   },
   demoInputBox: {
     borderRadius: 8,
@@ -266,7 +265,7 @@ export const useStyles = StyleSheet(theme => ({
     flex: 1,
     height: 64,
     borderRadius: 10,
-    backgroundColor: theme.dark ? '#FFFFFF' : '#1A1A2E',
+    backgroundColor: theme.colors.background.inverted,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
@@ -281,7 +280,7 @@ export const useStyles = StyleSheet(theme => ({
   overlayDemoText: {
     fontSize: 11,
     fontWeight: '600',
-    color: theme.dark ? '#000' : '#FFF',
+    color: theme.colors.text.inverse,
     zIndex: 1,
   },
 

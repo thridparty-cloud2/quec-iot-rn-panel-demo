@@ -41,6 +41,17 @@ const ColorSwatch = ({
   </View>
 )
 
+/** 将 hex 颜色与白色混合，生成浅色变体 */
+const lightenColor = (hex: string, ratio = 0.85): string => {
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  const lr = Math.round(r + (255 - r) * ratio)
+  const lg = Math.round(g + (255 - g) * ratio)
+  const lb = Math.round(b + (255 - b) * ratio)
+  return `#${lr.toString(16).padStart(2, '0')}${lg.toString(16).padStart(2, '0')}${lb.toString(16).padStart(2, '0')}`
+}
+
 export default function ThemeConfigPage() {
   const styles = useStyles()
   const preference: any = useContext(PreferencesContext)
@@ -51,7 +62,14 @@ export default function ThemeConfigPage() {
 
   const handleColorChange = (color: string) => {
     setSelectedColor(color)
-    preference?.setTheme({colors: {brand: {primary: color}}})
+    preference?.setTheme({
+      colors: {
+        brand: {
+          primary: color,
+          primaryLight: lightenColor(color),
+        },
+      },
+    })
   }
 
   return (
