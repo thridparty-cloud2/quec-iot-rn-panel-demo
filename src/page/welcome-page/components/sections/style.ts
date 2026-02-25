@@ -11,7 +11,6 @@ export const useStyles = StyleSheet(theme => ({
     marginTop: 8,
     paddingHorizontal: 4,
   },
-  // 卡片
   card: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -22,10 +21,6 @@ export const useStyles = StyleSheet(theme => ({
     borderWidth: 1,
     borderColor: theme.dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
   },
-  cardPressed: {
-    opacity: 0.7,
-    transform: [{scale: 0.98}],
-  },
   cardIconContainer: {
     width: 44,
     height: 44,
@@ -35,6 +30,7 @@ export const useStyles = StyleSheet(theme => ({
     marginRight: 14,
   },
   cardIcon: {
+    color: theme.colors.text.primary,
     fontSize: theme.size.text.T7,
   },
   cardContent: {

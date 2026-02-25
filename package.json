@@ -32,7 +32,7 @@
     "@babel/core": "7.25.2",
     "@quec/panel-theme-kit-config": "1.1.1",
     "@quec/panel-business-kit": "0.1.0",
-    "@quec/panel-components-kit": "0.1.1",
+    "@quec/panel-components-kit": "0.2.0-beta.1",
     "@quec/panel-device-kit": "1.0.3",
     "@quec/panel-theme-kit": "0.1.2",
     "react-native-svg": "15.12.1",

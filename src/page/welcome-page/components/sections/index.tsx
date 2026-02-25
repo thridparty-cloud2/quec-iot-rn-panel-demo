@@ -31,7 +31,7 @@ const SECTIONS: SectionItem[] = [
   {
     title: '设备信息',
     desc: '设备信息页面示例',
-    icon: '🏠',
+    icon: '💻',
     color: '#6366F1',
     route: PAGE_DEVICE_INFO,
   },
