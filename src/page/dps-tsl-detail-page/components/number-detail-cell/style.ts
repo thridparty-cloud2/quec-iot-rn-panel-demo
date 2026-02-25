@@ -114,5 +114,21 @@ export const useStyles = StyleSheet(theme => ({
     overflow: 'hidden',
     borderWidth: 1,
     borderColor: theme.colors.border.dividerLight,
+    position: 'relative',
+  },
+  copyButton: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    borderRadius: 6,
+    zIndex: 1,
+  },
+  copyButtonText: {
+    color: '#E2E2E2',
+    fontSize: theme.size.text.T1,
+    fontWeight: '500',
   },
 }))

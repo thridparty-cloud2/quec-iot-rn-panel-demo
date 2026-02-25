@@ -1,5 +1,5 @@
 import React, {memo, useEffect, useMemo, useState} from 'react'
-import {View, Text, TouchableOpacity} from 'react-native'
+import {View, Text, TouchableOpacity, Clipboard} from 'react-native'
 import {NumberTSLModel, useTslWriter} from '@quec/panel-model-kit'
 import {Slider} from '@miblanchard/react-native-slider'
 import SyntaxHighlighter from 'react-native-syntax-highlighter'
@@ -16,6 +16,7 @@ const NumberDetailCell: React.FC<NumberDetailCellProps> = ({tsl}) => {
   const theme = useTheme()
   const tslWriter = useTslWriter()
   const [value, setValue] = useState(tsl.attributeValue)
+  const [copied, setCopied] = useState(false)
 
   const codeStr = useMemo(() => {
     return `import { useTslWriter } from '@quec/panel-model-kit'
@@ -91,7 +92,7 @@ const MyComponent = () => {
         <View style={styles.sliderContainer}>
           <Slider
             value={value}
-            onValueChange={val => setValue(val[0])}
+            trackClickable={false}
             minimumValue={tsl.min ?? 0}
             maximumValue={tsl.max ?? 100}
             step={tsl.step ?? 1}
@@ -100,6 +101,7 @@ const MyComponent = () => {
             thumbTintColor="#FFFFFF"
             trackStyle={styles.trackStyle}
             thumbStyle={styles.thumbStyle}
+            onValueChange={val => setValue(val[0])}
           />
         </View>
         <TouchableOpacity
@@ -120,13 +122,24 @@ const MyComponent = () => {
       <View style={styles.card}>
         <Text style={styles.cardTitle}>代码片段示例</Text>
         <View style={styles.codeContainer}>
+          <TouchableOpacity
+            style={styles.copyButton}
+            activeOpacity={0.7}
+            onPress={() => {
+              Clipboard.setString(codeStr)
+              setCopied(true)
+              setTimeout(() => setCopied(false), 2000)
+            }}
+          >
+            <Text style={styles.copyButtonText}>{copied ? '已复制' : '复制代码'}</Text>
+          </TouchableOpacity>
           <SyntaxHighlighter
             language="javascript"
             style={obsidian}
             highlighter="hljs"
             PreTag={Text}
             CodeTag={Text}
-            customStyle={{margin: 0, padding: 16, borderRadius: 8}}
+            customStyle={{margin: 0, padding: 16, paddingTop: 36, borderRadius: 8}}
           >
             {codeStr}
           </SyntaxHighlighter>
