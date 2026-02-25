@@ -1,4 +1,4 @@
-import React, {FC, useMemo, useState} from 'react'
+import React, {FC, useMemo, useState, useEffect} from 'react'
 import {
     ScrollView,
     StyleSheet,
@@ -8,11 +8,12 @@ import {
     TextInput,
     Button,
     Alert,
+    BackHandler,
 } from 'react-native'
 import {IconModel} from '../../components/quec-header'
 import {PAGE_ALARM_FAULT, PAGE_SETTING} from '../../config/route-page.config'
 import {useNavigation} from '../../hooks'
-
+import QuecRNRouterModule from '@quec/rn-router-module/src/module'
 import {PageContainer} from '@quec/panel-business-kit'
 import {
     useDevice,
@@ -34,6 +35,74 @@ const Main: FC<MainProps> = () => {
 
     const navigation = useNavigation()
     const models = useModel()
+
+    // 返回键处理
+    useEffect(() => {
+        let isExiting = false
+
+        const backAction = () => {
+            if (isExiting) return true
+
+            // 检查是否可以返回上一页
+            if (navigation.canGoBack()) {
+                navigation.goBack()
+                return true
+            } else {
+                // 如果没有上一页，显示退出确认对话框
+                Alert.alert(
+                    '提示',
+                    '确定要退出应用吗？',
+                    [
+                        {text: '取消', onPress: () => {}, style: 'cancel'},
+                        {
+                            text: '确定',
+                            onPress: () => {
+                                isExiting = true
+                                console.log('返回键退出应用')
+
+                                // 直接使用QuecRNRouterModule.popWithNumber(1)退出应用
+                                try {
+                                    console.log(
+                                        '返回键退出应用: QuecRNRouterModule.popWithNumber(1)',
+                                    )
+                                    QuecRNRouterModule.popWithNumber(1)
+                                } catch (e) {
+                                    console.log(
+                                        'QuecRNRouterModule.popWithNumber(1) failed:',
+                                        e,
+                                    )
+
+                                    // 如果QuecRNRouterModule失败，尝试备用方法
+                                    try {
+                                        console.log(
+                                            '备用方法: BackHandler.exitApp()',
+                                        )
+                                        BackHandler.exitApp()
+                                    } catch (e2) {
+                                        console.log(
+                                            'BackHandler.exitApp() failed:',
+                                            e2,
+                                        )
+                                    }
+                                }
+                            },
+                        },
+                    ],
+                    {cancelable: false},
+                )
+                return true
+            }
+        }
+
+        // 添加返回键监听器
+        const backHandler = BackHandler.addEventListener(
+            'hardwareBackPress',
+            backAction,
+        )
+
+        // 清理函数
+        return () => backHandler.remove()
+    }, [navigation])
 
     const rightIcons = useMemo<Array<IconModel>>(() => {
         return [
