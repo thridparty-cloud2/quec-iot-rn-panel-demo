@@ -6,13 +6,21 @@ import QuecHeader from '../../components/quec-header'
 import {RootStackParamList} from '../../router/router'
 import NumberDetailCell from './components/number-detail-cell'
 import EnumDetailCell from './components/enum-detail-cell'
-import {DATATYPE_DOUBLE, DATATYPE_ENUM, DATATYPE_FLOAT, DATATYPE_INT} from '@quec/panel-model-kit'
+import BoolDetailCell from './components/bool-detail-cell'
+import {
+  DATATYPE_BOOL,
+  DATATYPE_DOUBLE,
+  DATATYPE_ENUM,
+  DATATYPE_FLOAT,
+  DATATYPE_INT,
+} from '@quec/panel-model-kit'
 
 const TslDetailComponentMap: any = {
   [DATATYPE_INT]: NumberDetailCell,
   [DATATYPE_FLOAT]: NumberDetailCell,
   [DATATYPE_DOUBLE]: NumberDetailCell,
   [DATATYPE_ENUM]: EnumDetailCell,
+  [DATATYPE_BOOL]: BoolDetailCell,
 }
 
 type Props = NativeStackScreenProps<RootStackParamList, 'DpsTslDetailPage'>

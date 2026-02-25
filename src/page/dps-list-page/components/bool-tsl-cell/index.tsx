@@ -1,14 +1,17 @@
 import React, {memo} from 'react'
-import {Text, View} from 'react-native'
+import {Text, TouchableOpacity, View} from 'react-native'
 import {BooleanTSLModel, SUBTYPE_R} from '@quec/panel-model-kit'
 import {useStyles} from './style'
+import {useNavigation} from '../../../../hooks'
+import {PAGE_DPS_TSL_DETAIL} from '../../../../config/route-page.config'
 
 interface BoolTslProps {
   tsl: BooleanTSLModel
   dpsKey: string
 }
 
-const BoolTslCell: React.FC<BoolTslProps> = ({tsl}) => {
+const BoolTslCell: React.FC<BoolTslProps> = ({tsl, dpsKey}) => {
+  const navigation = useNavigation()
   const styles = useStyles()
   const isReadonly = tsl.subType === SUBTYPE_R
   const val = String(tsl.attributeValue) === 'true'
@@ -21,7 +24,13 @@ const BoolTslCell: React.FC<BoolTslProps> = ({tsl}) => {
   ]
 
   return (
-    <View style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      activeOpacity={0.8}
+      onPress={() => {
+        navigation.navigate(PAGE_DPS_TSL_DETAIL, {tsl, dpsKey})
+      }}
+    >
       {/* 头部：名称 + 类型标签 */}
       <View style={styles.header}>
         <Text style={styles.name}>{tsl.name}</Text>
@@ -61,7 +70,7 @@ const BoolTslCell: React.FC<BoolTslProps> = ({tsl}) => {
         <Text style={styles.footerText}>ID: {tsl.id}</Text>
         <Text style={styles.footerText}>排序: {tsl.sort}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 

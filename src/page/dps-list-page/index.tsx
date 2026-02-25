@@ -15,11 +15,11 @@ import EnumTslCell from './components/enum-tsl-cell'
 import BoolTslCell from './components/bool-tsl-cell'
 
 const TslComponentMap: any = {
-  // [DATATYPE_INT]: NumberTslCell,
-  // [DATATYPE_FLOAT]: NumberTslCell,
-  // [DATATYPE_DOUBLE]: NumberTslCell,
+  [DATATYPE_INT]: NumberTslCell,
+  [DATATYPE_FLOAT]: NumberTslCell,
+  [DATATYPE_DOUBLE]: NumberTslCell,
   [DATATYPE_ENUM]: EnumTslCell,
-  // [DATATYPE_BOOL]: BoolTslCell,
+  [DATATYPE_BOOL]: BoolTslCell,
 }
 
 export default function DpsListPage() {
