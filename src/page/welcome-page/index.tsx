@@ -11,10 +11,9 @@ function WelcomePage() {
 
   return (
     <View style={styles.container}>
-      <QuecHeader title="欢迎" />
+      <QuecHeader />
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         <Hero />
-
         <Sections />
       </ScrollView>
     </View>

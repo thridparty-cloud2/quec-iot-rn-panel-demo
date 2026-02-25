@@ -21,7 +21,7 @@ import {useStyles, commonIconMargin, commonIconSize} from './style'
 
 interface QuecHeaderProps {
   /** 标题 */
-  title: string | undefined
+  title?: string | undefined
   /** 左图标路径 */
   leftIcon?: ImageSourcePropType
   /** 右图标集合 */
