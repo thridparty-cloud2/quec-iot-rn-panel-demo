@@ -7,6 +7,7 @@
         "android": "react-native run-android",
         "ios": "react-native run-ios",
         "start": "react-native start",
+        "start-log": "react-native start --reset-cache --client-logs",
         "start-ssl-mac": "export NODE_OPTIONS=--openssl-legacy-provider && react-native start",
         "start-ssl-wind": "SET NODE_OPTIONS=--openssl-legacy-provider && react-native start",
         "test": "jest --config ./.configs/jest.config.js",
