@@ -37,7 +37,7 @@
     "@quec/panel-theme-kit": "0.1.2",
     "react-native-svg": "15.12.1",
     "react-native-webview": "13.10.4",
-    "@quec/panel-model-kit": "1.1.0-beta.1",
+    "@quec/panel-model-kit": "1.1.0-beta.2",
     "react-native-safe-area-context": "5.6.1"
   },
   "dependencies": {
@@ -46,7 +46,7 @@
     "@quec/panel-component-customer-attrs": "1.1.3",
     "@quec/panel-components-kit": "0.2.0-beta.1",
     "@quec/panel-device-kit": "1.0.3",
-    "@quec/panel-model-kit": "1.1.0-beta.1",
+    "@quec/panel-model-kit": "1.1.0-beta.2",
     "@quec/panel-sdk": "0.1.0-beta.1",
     "@quec/panel-theme-kit": "0.1.1",
     "@quec/panel-theme-kit-config": "1.1.1",
