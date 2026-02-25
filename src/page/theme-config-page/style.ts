@@ -55,6 +55,7 @@ export const useStyles = StyleSheet(theme => ({
     textTransform: 'uppercase',
     letterSpacing: 1,
     marginBottom: 10,
+    marginTop: 4,
     paddingHorizontal: 4,
   },
 
@@ -99,7 +100,7 @@ export const useStyles = StyleSheet(theme => ({
     alignSelf: 'center',
   },
 
-  // ── 颜色选择 ──
+  // ── 主题色选择 ──
   colorGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -131,127 +132,170 @@ export const useStyles = StyleSheet(theme => ({
     fontSize: theme.size.text.T1,
     color: theme.colors.text.tertiary,
   },
-  customColorCircle: {
-    backgroundColor: 'transparent',
-    borderWidth: 2,
-    borderStyle: 'dashed',
+
+  // ── 色块展示行 ──
+  swatchRow: {
+    flexDirection: 'row',
+    marginBottom: 8,
   },
-  customColorPlus: {
-    fontSize: theme.size.text.T5,
-    fontWeight: '300',
+  swatchItem: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  swatchBox: {
+    width: 36,
+    height: 36,
+    borderRadius: 10,
+    marginBottom: 4,
+    borderWidth: 1,
+    borderColor: theme.dark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)',
+  },
+  swatchLabel: {
+    fontSize: 10,
+    color: theme.colors.text.secondary,
+    marginBottom: 1,
+  },
+  swatchName: {
+    fontSize: 9,
     color: theme.colors.text.tertiary,
+    fontFamily: 'monospace',
+    marginBottom: 1,
+  },
+  swatchHex: {
+    fontSize: 9,
+    color: theme.colors.text.tertiary,
+    fontFamily: 'monospace',
   },
 
-  // ── 效果预览 ──
-  previewRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 14,
-  },
-  previewLabel: {
-    fontSize: theme.size.text.T3,
-    color: theme.colors.text.secondary,
-  },
-  previewSwatch: {
-    width: 24,
-    height: 24,
-    borderRadius: 6,
-  },
-  previewDivider: {
+  // ── 通用 Demo ──
+  demoDivider: {
     height: 1,
     backgroundColor: theme.dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
-    marginBottom: 14,
+    marginVertical: 12,
   },
-  previewButton: {
-    borderRadius: 12,
-    paddingVertical: 12,
-    alignItems: 'center',
-  },
-  previewButtonText: {
-    color: '#FFFFFF',
-    fontSize: theme.size.text.T3,
+  demoLabel: {
+    fontSize: theme.size.text.T1,
     fontWeight: '600',
+    color: theme.colors.text.tertiary,
+    textTransform: 'uppercase',
+    letterSpacing: 0.8,
+    marginBottom: 10,
+  },
+  demoRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginTop: 10,
   },
 
-  // ── 弹窗 ──
-  modal: {
-    justifyContent: 'flex-end',
-    margin: 0,
+  // ── Brand Demo ──
+  demoButton: {
+    borderRadius: 10,
+    paddingVertical: 10,
+    alignItems: 'center',
   },
-  modalContent: {
-    backgroundColor: theme.dark ? '#1E1E2E' : '#FFFFFF',
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    paddingHorizontal: 20,
-    paddingTop: 20,
-    paddingBottom: 36,
+  demoBadge: {
+    paddingHorizontal: 12,
+    paddingVertical: 5,
+    borderRadius: 6,
   },
-  modalTitle: {
-    fontSize: theme.size.text.T5,
-    fontWeight: '700',
-    color: theme.colors.text.primary,
-    textAlign: 'center',
-    marginBottom: 20,
+
+  // ── Background Demo ──
+  bgDemoStack: {
+    marginBottom: 10,
   },
-  picker: {
-    gap: 16,
+  bgDemoLayer: {
+    borderRadius: 10,
+    padding: 10,
+    marginTop: 6,
+    borderWidth: 1,
+    borderColor: theme.dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
   },
-  pickerPanel: {
-    borderRadius: 12,
-    height: 200,
-  },
-  pickerSlider: {
+  demoInputBox: {
     borderRadius: 8,
-    height: 32,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    borderWidth: 1,
   },
-  pickerPreviewRow: {
+
+  // ── Status Demo ──
+  statusDemoRow: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  statusBadge: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    gap: 4,
     paddingVertical: 8,
-  },
-  pickerPreviewText: {
-    fontSize: theme.size.text.T3,
-    fontWeight: '600',
-    color: theme.colors.text.primary,
-  },
-  pickerPreviewSwatch: {
-    width: 32,
-    height: 32,
     borderRadius: 8,
   },
-  modalActions: {
+  statusDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+  },
+
+  // ── Text Demo ──
+  textDemoList: {
+    gap: 6,
+  },
+  textInverseBox: {
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    marginTop: 4,
+  },
+
+  // ── Border Demo ──
+  borderDemoRow: {
     flexDirection: 'row',
     gap: 12,
-    marginTop: 20,
+    marginBottom: 12,
   },
-  modalCancelBtn: {
+  borderBox: {
     flex: 1,
-    paddingVertical: 14,
-    borderRadius: 12,
-    alignItems: 'center',
-    backgroundColor: theme.dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.05)',
-  },
-  modalCancelText: {
-    fontSize: theme.size.text.T3,
-    fontWeight: '600',
-    color: theme.colors.text.secondary,
-  },
-  modalConfirmBtn: {
-    flex: 1,
-    paddingVertical: 14,
-    borderRadius: 12,
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingVertical: 16,
     alignItems: 'center',
   },
-  modalConfirmText: {
-    fontSize: theme.size.text.T3,
+  demoDividerLine: {
+    height: 1,
+    marginVertical: 8,
+  },
+
+  // ── Overlay Demo ──
+  overlayDemoRow: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  overlayDemoBase: {
+    flex: 1,
+    height: 64,
+    borderRadius: 10,
+    backgroundColor: theme.dark ? '#FFFFFF' : '#1A1A2E',
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  overlayDemoCover: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  overlayDemoText: {
+    fontSize: 11,
     fontWeight: '600',
-    color: '#FFFFFF',
+    color: theme.dark ? '#000' : '#FFF',
+    zIndex: 1,
   },
 
   // ── 底部 ──
   bottomSpacer: {
-    height: 32,
+    height: 40,
   },
 }))
