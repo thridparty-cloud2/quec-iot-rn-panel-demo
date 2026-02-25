@@ -23,6 +23,8 @@ import {
 import {useTslWriter} from '@quec/panel-model-kit'
 import {useModel} from '../../App'
 import {useThemeColors, useThemeImg} from '../../hooks/theme'
+import {setupI18nConfig} from '@quec/rn-language-module/src/i18n'
+import i18n from '../../i18n/i18n'
 
 interface MainProps {}
 
@@ -35,6 +37,10 @@ const Main: FC<MainProps> = () => {
 
     const navigation = useNavigation()
     const models = useModel()
+    const t = i18n
+
+    // 初始化多语言配置
+    setupI18nConfig()
 
     // 返回键处理
     useEffect(() => {
