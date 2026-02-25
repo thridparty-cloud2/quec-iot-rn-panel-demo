@@ -25,3 +25,7 @@ export const PAGE_MAIN = 'MainPage'
  * 欢迎页
  */
 export const PAGE_WELCOME = 'WelcomePage'
+/**
+ * 设备信息页面
+ */
+export const PAGE_DEVICE_INFO = 'DeviceInfoPage'

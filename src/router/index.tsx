@@ -13,6 +13,7 @@ import type {RootStackParamList} from './router'
 import SettingPage from '../page/setting-page'
 import WelcomePage from '../page/welcome-page'
 import {useTheme} from '../style/themes'
+import DeviceInfoPage from '../page/device-info-page'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -34,6 +35,9 @@ export const PageRoutes = {
     headerShown: false,
   }),
   WelcomePage: new PageRouterImp(PAGES.PAGE_WELCOME, WelcomePage, {
+    headerShown: false,
+  }),
+  DeviceInfoPage: new PageRouterImp(PAGES.PAGE_DEVICE_INFO, DeviceInfoPage, {
     headerShown: false,
   }),
   // ProductDescriptionPage: new PageRouterImp(

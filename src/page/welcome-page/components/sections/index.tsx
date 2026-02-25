@@ -1,7 +1,12 @@
 import React, {memo, useCallback} from 'react'
 import {Text, View, TouchableOpacity} from 'react-native'
 import {RootStackParamList} from '../../../../router/router'
-import {PAGE_MAIN, PAGE_ALARM_FAULT, PAGE_SETTING} from '../../../../config/route-page.config'
+import {
+  PAGE_MAIN,
+  PAGE_ALARM_FAULT,
+  PAGE_SETTING,
+  PAGE_DEVICE_INFO,
+} from '../../../../config/route-page.config'
 import {useStyles} from './style'
 import {useNavigation} from '../../../../hooks'
 
@@ -18,10 +23,17 @@ interface SectionItem {
 const SECTIONS: SectionItem[] = [
   {
     title: '主页面（Blank）',
-    desc: '空白主页模板，展示设备名称和基础导航',
+    desc: 'blank blank blank blank',
     icon: '🏠',
     color: '#6366F1',
     route: PAGE_MAIN,
+  },
+  {
+    title: '设备信息',
+    desc: '设备信息页面示例',
+    icon: '🏠',
+    color: '#6366F1',
+    route: PAGE_DEVICE_INFO,
   },
   {
     title: '消息告警',

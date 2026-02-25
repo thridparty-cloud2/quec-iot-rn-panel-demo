@@ -32,4 +32,5 @@ export type RootStackParamList = {
   [PAGES.PAGE_MORE_HELP]: {device: any; area: string}
   [PAGES.PAGE_PRODUCT_MANUAL]: undefined
   [PAGES.PAGE_WELCOME]: undefined
+  [PAGES.PAGE_DEVICE_INFO]: undefined
 }
