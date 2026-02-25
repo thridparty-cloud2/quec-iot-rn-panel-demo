@@ -506,7 +506,7 @@ const Main: FC<MainProps> = () => {
                                     </Text>
                                     {!isObj && !isArr && (
                                         <Text style={styles.modelValue}>
-                                            {val.toString()}
+                                            {val?.toString()}
                                         </Text>
                                     )}
                                     {isObj &&
