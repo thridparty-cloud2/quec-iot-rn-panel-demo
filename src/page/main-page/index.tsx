@@ -158,7 +158,10 @@ const Main: FC<MainProps> = () => {
                 },
             })
         } else {
-            Alert.alert('提示', '未找到布尔型物模型')
+            Alert.alert(
+                t('main_page_alert_tip'),
+                t('main_page_boolean_not_found'),
+            )
         }
     }
 
@@ -177,18 +180,27 @@ const Main: FC<MainProps> = () => {
                 },
                 fail() {
                     console.log('数值型物模型下发失败')
-                    Alert.alert('提示', '数值型物模型下发失败')
+                    Alert.alert(
+                        t('main_page_alert_tip'),
+                        t('main_page_numeric_send_fail'),
+                    )
                 },
             })
         } else {
-            Alert.alert('提示', '未找到数值型物模型')
+            Alert.alert(
+                t('main_page_alert_tip'),
+                t('main_page_numeric_not_found'),
+            )
         }
     }
 
     // 文本型物模型操作示例
     const handleTextSubmit = () => {
         if (!textValue.trim()) {
-            Alert.alert('提示', '请输入文本内容')
+            Alert.alert(
+                t('main_page_alert_tip'),
+                t('main_page_text_input_prompt'),
+            )
             return
         }
 
@@ -201,15 +213,21 @@ const Main: FC<MainProps> = () => {
             write(textModel, textValue, {
                 success() {
                     console.log('文本型物模型下发成功')
-                    Alert.alert('提示', '文本型物模型下发成功')
+                    Alert.alert(
+                        t('main_page_alert_tip'),
+                        t('main_page_text_send_success'),
+                    )
                 },
                 fail() {
                     console.log('文本型物模型下发失败')
-                    Alert.alert('提示', '文本型物模型下发失败')
+                    Alert.alert(
+                        t('main_page_alert_tip'),
+                        t('main_page_text_send_fail'),
+                    )
                 },
             })
         } else {
-            Alert.alert('提示', '未找到文本型物模型')
+            Alert.alert(t('main_page_alert_tip'), t('main_page_text_not_found'))
         }
     }
 
@@ -228,11 +246,14 @@ const Main: FC<MainProps> = () => {
                 },
                 fail() {
                     console.log('枚举型物模型下发失败')
-                    Alert.alert('提示', '枚举型物模型下发失败')
+                    Alert.alert(
+                        t('main_page_alert_tip'),
+                        t('main_page_enum_send_fail'),
+                    )
                 },
             })
         } else {
-            Alert.alert('提示', '未找到枚举型物模型')
+            Alert.alert(t('main_page_alert_tip'), t('main_page_enum_not_found'))
         }
     }
 
@@ -263,15 +284,24 @@ const Main: FC<MainProps> = () => {
             write(writeItems, {
                 success() {
                     console.log('多物模型下发成功')
-                    Alert.alert('提示', '多物模型下发成功')
+                    Alert.alert(
+                        t('main_page_alert_tip'),
+                        t('main_page_multi_send_success'),
+                    )
                 },
                 fail() {
                     console.log('多物模型下发失败')
-                    Alert.alert('提示', '多物模型下发失败')
+                    Alert.alert(
+                        t('main_page_alert_tip'),
+                        t('main_page_multi_send_fail'),
+                    )
                 },
             })
         } else {
-            Alert.alert('提示', '未找到可用的物模型')
+            Alert.alert(
+                t('main_page_alert_tip'),
+                t('main_page_no_available_model'),
+            )
         }
     }
 
@@ -284,13 +314,17 @@ const Main: FC<MainProps> = () => {
             <ScrollView style={styles.container}>
                 {/* 物模型调用示例区域 */}
                 <View style={styles.demoSection}>
-                    <Text style={styles.sectionTitle}>物模型调用示例</Text>
+                    <Text style={styles.sectionTitle}>
+                        {t('main_page_model_demo')}
+                    </Text>
 
                     {/* 布尔型物模型示例 */}
                     <View style={styles.demoItem}>
-                        <Text style={styles.demoTitle}>布尔型物模型示例：</Text>
+                        <Text style={styles.demoTitle}>
+                            {t('main_page_boolean_model')}
+                        </Text>
                         <View style={styles.row}>
-                            <Text>开关控制：</Text>
+                            <Text>{t('main_page_boolean_control')}</Text>
                             <Switch
                                 value={switchValue}
                                 onValueChange={handleBooleanChange}
@@ -300,9 +334,11 @@ const Main: FC<MainProps> = () => {
 
                     {/* 数值型物模型示例 */}
                     <View style={styles.demoItem}>
-                        <Text style={styles.demoTitle}>数值型物模型示例：</Text>
+                        <Text style={styles.demoTitle}>
+                            {t('main_page_numeric_model')}
+                        </Text>
                         <View style={styles.row}>
-                            <Text>数值调节：</Text>
+                            <Text>{t('main_page_numeric_adjust')}</Text>
                             <TextInput
                                 style={styles.numberInput}
                                 keyboardType="numeric"
@@ -316,7 +352,7 @@ const Main: FC<MainProps> = () => {
                                 onBlur={() => handleNumberChange(numberValue)}
                             />
                             <Button
-                                title="设置"
+                                title={t('main_page_setting')}
                                 onPress={() => handleNumberChange(numberValue)}
                                 color={colors.primary}
                             />
@@ -345,16 +381,18 @@ const Main: FC<MainProps> = () => {
 
                     {/* 文本型物模型示例 */}
                     <View style={styles.demoItem}>
-                        <Text style={styles.demoTitle}>文本型物模型示例：</Text>
+                        <Text style={styles.demoTitle}>
+                            {t('main_page_text_model')}
+                        </Text>
                         <View style={styles.row}>
                             <TextInput
                                 style={styles.textInput}
-                                placeholder="请输入文本内容"
+                                placeholder={t('main_page_text_input_prompt')}
                                 value={textValue}
                                 onChangeText={setTextValue}
                             />
                             <Button
-                                title="发送"
+                                title={t('main_page_send')}
                                 onPress={handleTextSubmit}
                                 color={colors.primary}
                             />
@@ -363,27 +401,29 @@ const Main: FC<MainProps> = () => {
 
                     {/* 枚举型物模型示例 */}
                     <View style={styles.demoItem}>
-                        <Text style={styles.demoTitle}>枚举型物模型示例：</Text>
+                        <Text style={styles.demoTitle}>
+                            {t('main_page_enum_model')}
+                        </Text>
                         <View style={styles.row}>
-                            <Text>模式选择：</Text>
+                            <Text>{t('main_page_mode_selection')}</Text>
                         </View>
                         <View style={styles.enumContainer}>
                             <Button
-                                title="模式1"
+                                title={t('main_page_mode_1')}
                                 onPress={() => handleEnumChange('0')}
                                 color={
                                     enumValue === '0' ? colors.primary : '#ccc'
                                 }
                             />
                             <Button
-                                title="模式2"
+                                title={t('main_page_mode_2')}
                                 onPress={() => handleEnumChange('1')}
                                 color={
                                     enumValue === '1' ? colors.primary : '#ccc'
                                 }
                             />
                             <Button
-                                title="模式3"
+                                title={t('main_page_mode_3')}
                                 onPress={() => handleEnumChange('2')}
                                 color={
                                     enumValue === '2' ? colors.primary : '#ccc'
@@ -391,18 +431,19 @@ const Main: FC<MainProps> = () => {
                             />
                         </View>
                         <Text style={styles.selectedValue}>
-                            当前选择: 模式{parseInt(enumValue) + 1}
+                            {t('main_page_current_selection')}:{' '}
+                            {t('main_page_mode_' + (parseInt(enumValue) + 1))}
                         </Text>
                     </View>
 
                     {/* 多物模型同时下发示例 */}
                     <View style={styles.demoItem}>
                         <Text style={styles.demoTitle}>
-                            多物模型同时下发示例：
+                            {t('main_page_multi_model_send')}:
                         </Text>
                         <View style={styles.row}>
                             <Button
-                                title="同时下发多个物模型"
+                                title={t('main_page_multi_model_send')}
                                 onPress={handleMultiWrite}
                                 color={colors.primary}
                             />
@@ -415,7 +456,9 @@ const Main: FC<MainProps> = () => {
 
                 {/* 原有的物模型展示区域 */}
                 <View style={styles.modelSection}>
-                    <Text style={styles.sectionTitle}>物模型数据展示</Text>
+                    <Text style={styles.sectionTitle}>
+                        {t('main_page_model_display')}
+                    </Text>
                     {Object.entries(models ?? {}).map(([key, item]) => {
                         const val = item.attributeValue
                         const isObj = typeof val === 'object'
