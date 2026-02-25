@@ -1,5 +1,5 @@
 import React, {memo} from 'react'
-import {Text, View, TouchableOpacity} from 'react-native'
+import {Text, View} from 'react-native'
 import {BooleanTSLModel, SUBTYPE_R} from '@quec/panel-model-kit'
 import {useStyles} from './style'
 
@@ -46,16 +46,11 @@ const BoolTslCell: React.FC<BoolTslProps> = ({tsl}) => {
         {options.map((opt: any) => {
           const isActive = String(opt.value) === currentValStr
           return (
-            <TouchableOpacity
-              key={opt.value}
-              style={[styles.optionChip, isActive && styles.optionChipActive]}
-              activeOpacity={isReadonly ? 1 : 0.7}
-              disabled={isReadonly}
-            >
+            <View key={opt.value} style={[styles.optionChip, isActive && styles.optionChipActive]}>
               <Text style={[styles.optionText, isActive && styles.optionTextActive]}>
                 {opt.name}
               </Text>
-            </TouchableOpacity>
+            </View>
           )
         })}
       </View>
