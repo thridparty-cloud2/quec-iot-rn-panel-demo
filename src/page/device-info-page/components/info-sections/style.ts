@@ -2,12 +2,12 @@ import {StyleSheet} from '@quec/panel-components-kit'
 
 export const useStyles = StyleSheet(theme => ({
   sectionCard: {
-    backgroundColor: theme.dark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.02)',
+    backgroundColor: theme.colors.background.secondary,
     borderRadius: 16,
     padding: 16,
     marginBottom: 12,
     borderWidth: 1,
-    borderColor: theme.dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+    borderColor: theme.colors.border.dividerLight,
   },
   sectionTitle: {
     fontSize: theme.size.text.T2,
@@ -18,7 +18,7 @@ export const useStyles = StyleSheet(theme => ({
     marginBottom: 12,
     paddingBottom: 10,
     borderBottomWidth: 1,
-    borderBottomColor: theme.dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+    borderBottomColor: theme.colors.border.dividerLight,
   },
   infoRow: {
     flexDirection: 'row',

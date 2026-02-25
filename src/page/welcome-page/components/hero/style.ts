@@ -10,12 +10,13 @@ export const useStyles = StyleSheet(theme => ({
     width: 80,
     height: 80,
     borderRadius: 20,
-    backgroundColor: theme.dark ? 'rgba(99,102,241,0.15)' : 'rgba(99,102,241,0.08)',
+    backgroundColor: theme.colors.brand.primaryLight,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
   },
   logoText: {
+    color: '#000',
     fontSize: 36,
   },
   title: {
@@ -37,11 +38,11 @@ export const useStyles = StyleSheet(theme => ({
     paddingHorizontal: 12,
     paddingVertical: 4,
     borderRadius: 12,
-    backgroundColor: theme.dark ? 'rgba(99,102,241,0.12)' : 'rgba(99,102,241,0.06)',
+    backgroundColor: theme.colors.brand.primaryLight,
   },
   versionText: {
     fontSize: theme.size.text.T2,
-    color: theme.dark ? '#818CF8' : '#6366F1',
+    color: theme.colors.brand.primary,
     fontWeight: '500',
   },
 }))

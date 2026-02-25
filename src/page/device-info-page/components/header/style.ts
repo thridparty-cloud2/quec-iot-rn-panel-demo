@@ -4,12 +4,12 @@ export const useStyles = StyleSheet(theme => ({
   headerCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: theme.dark ? 'rgba(99,102,241,0.1)' : 'rgba(99,102,241,0.06)',
+    backgroundColor: theme.colors.brand.primaryLight,
     borderRadius: 16,
     padding: 16,
     marginBottom: 16,
     borderWidth: 1,
-    borderColor: theme.dark ? 'rgba(99,102,241,0.2)' : 'rgba(99,102,241,0.1)',
+    borderColor: theme.colors.border.default,
   },
   deviceLogo: {
     width: 60,
@@ -20,7 +20,7 @@ export const useStyles = StyleSheet(theme => ({
     width: 60,
     height: 60,
     borderRadius: 14,
-    backgroundColor: theme.dark ? 'rgba(99,102,241,0.15)' : 'rgba(99,102,241,0.1)',
+    backgroundColor: theme.colors.brand.primaryLight,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -51,10 +51,10 @@ export const useStyles = StyleSheet(theme => ({
     borderRadius: 10,
   },
   statusOnline: {
-    backgroundColor: theme.dark ? 'rgba(34,197,94,0.15)' : 'rgba(34,197,94,0.1)',
+    backgroundColor: theme.colors.status.success + '20',
   },
   statusOffline: {
-    backgroundColor: theme.dark ? 'rgba(239,68,68,0.15)' : 'rgba(239,68,68,0.1)',
+    backgroundColor: theme.colors.status.error + '20',
   },
   statusDot: {
     width: 6,
@@ -63,19 +63,19 @@ export const useStyles = StyleSheet(theme => ({
     marginRight: 5,
   },
   dotOnline: {
-    backgroundColor: '#22C55E',
+    backgroundColor: theme.colors.status.success,
   },
   dotOffline: {
-    backgroundColor: '#EF4444',
+    backgroundColor: theme.colors.status.error,
   },
   statusText: {
     fontSize: theme.size.text.T1,
     fontWeight: '600',
   },
   statusTextOnline: {
-    color: '#22C55E',
+    color: theme.colors.status.success,
   },
   statusTextOffline: {
-    color: '#EF4444',
+    color: theme.colors.status.error,
   },
 }))
