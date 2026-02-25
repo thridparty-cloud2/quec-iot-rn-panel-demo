@@ -1,7 +1,11 @@
 import React, {memo, useCallback} from 'react'
 import {Text, View, TouchableOpacity} from 'react-native'
 import {RootStackParamList} from '../../../../router/router'
-import {PAGE_DEVICE_INFO, PAGE_THEME_CONFIG} from '../../../../config/route-page.config'
+import {
+  PAGE_DEVICE_INFO,
+  PAGE_DPS_LIST,
+  PAGE_THEME_CONFIG,
+} from '../../../../config/route-page.config'
 import {useStyles} from './style'
 import {useNavigation} from '../../../../hooks'
 
@@ -26,6 +30,12 @@ const SECTIONS: SectionItem[] = [
     desc: '主题配置页面示例',
     icon: '🌻',
     route: PAGE_THEME_CONFIG,
+  },
+  {
+    title: '物模型',
+    desc: '物模型展示与下发示例',
+    icon: '♾️',
+    route: PAGE_DPS_LIST,
   },
 ]
 

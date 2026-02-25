@@ -15,6 +15,7 @@ import WelcomePage from '../page/welcome-page'
 import {useTheme} from '../style/themes'
 import DeviceInfoPage from '../page/device-info-page'
 import ThemeConfigPage from '../page/theme-config-page'
+import DpsListPage from '../page/dps-list-page';
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -44,6 +45,7 @@ export const PageRoutes = {
   ThemeConfigPage: new PageRouterImp(PAGES.PAGE_THEME_CONFIG, ThemeConfigPage, {
     headerShown: false,
   }),
+    DpsListPage: new PageRouterImp(PAGES.PAGE_DPS_LIST, DpsListPage, { headerShown: false })
 }
 
 export default function AppContainer() {

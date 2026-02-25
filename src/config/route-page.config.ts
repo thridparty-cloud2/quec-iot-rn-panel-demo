@@ -33,3 +33,7 @@ export const PAGE_DEVICE_INFO = 'DeviceInfoPage'
  * 主页配置页面
  */
 export const PAGE_THEME_CONFIG = 'ThemeConfigPage'
+/**
+ * 物模型列表数据
+ */
+export const PAGE_DPS_LIST = 'DpsListPage';

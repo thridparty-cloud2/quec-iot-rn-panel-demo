@@ -34,4 +34,5 @@ export type RootStackParamList = {
   [PAGES.PAGE_WELCOME]: undefined
   [PAGES.PAGE_DEVICE_INFO]: undefined
     [PAGES.PAGE_THEME_CONFIG]: undefined;
+    [PAGES.PAGE_DPS_LIST]: undefined;
 }
