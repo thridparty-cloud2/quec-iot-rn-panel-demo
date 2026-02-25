@@ -18,6 +18,7 @@ import {useInitEvent} from './hooks'
 import {useConstructor} from './hooks/use-constructor.hook'
 import AppRouter from './router'
 import {setup} from './setup'
+import {useTheme} from './style/themes'
 
 LogBox.ignoreLogs(['Setting a timer'])
 
@@ -32,6 +33,7 @@ const AppContainer = memo(() => {
   const device = useDevice()
   // getDeviceState - 主动请求设备状态的方法
   const getDeviceState = useGetDeviceStatus()
+  const theme = useTheme()
 
   // 初始化逻辑 (全局方法的初始化 以及 数据的初始化)
   useConstructor(async () => {
@@ -78,7 +80,7 @@ const AppContainer = memo(() => {
   })
 
   return (
-    <View style={{flex: 1, backgroundColor: 'transparent'}}>
+    <View style={{flex: 1, backgroundColor: theme.colors.background.primary}}>
       <AppRouter />
       <Toast visibilityTime={2000} />
       <Loading

@@ -32,4 +32,4 @@ export const PAGE_DEVICE_INFO = 'DeviceInfoPage'
 /**
  * 主页配置页面
  */
-export const PAGE_THEME_CONFIG = 'ThemeConfigPage';
+export const PAGE_THEME_CONFIG = 'ThemeConfigPage'

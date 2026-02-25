@@ -50,7 +50,7 @@ const App: FC<Props> = props => {
 
   const [isInit, setIsInit] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(true)
-  const theme = useMemo(() => deepmergeTheme(isDarkMode ? DarkTheme : LightTheme, {}), [isDarkMode])
+  const [theme, setTheme] = useState(isDarkMode ? DarkTheme : LightTheme)
 
   useEffect(() => {
     const getNativeAppTheme = async () => {
@@ -67,13 +67,17 @@ const App: FC<Props> = props => {
     getNativeAppTheme()
   }, [])
 
-  const preference = useMemo(
-    () => ({
+  useEffect(() => {
+    const next = deepmergeTheme(isDarkMode ? DarkTheme : LightTheme, {})
+    setTheme(next)
+  }, [isDarkMode])
+
+  const preference = useMemo(() => {
+    return {
       toggleDarkMode: () => setIsDarkMode(old => !old),
       theme,
-    }),
-    [theme],
-  )
+    }
+  }, [theme])
 
   if (!isInit) {
     return null

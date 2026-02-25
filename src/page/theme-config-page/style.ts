@@ -5,4 +5,7 @@ export const useStyles = StyleSheet(theme => ({
     flex: 1,
     backgroundColor: theme.colors.background.primary,
   },
+  text: {
+    color: theme.colors.text.primary,
+  },
 }))
