@@ -19,14 +19,14 @@ export const useStyles = StyleSheet(theme => ({
     fontSize: 36,
   },
   title: {
-    fontSize: 26,
+    fontSize: theme.size.text.T7,
     fontWeight: '700',
     color: theme.colors.text.primary,
     marginBottom: 8,
     letterSpacing: 0.5,
   },
   subtitle: {
-    fontSize: 14,
+    fontSize: theme.size.text.T3,
     color: theme.colors.text.tertiary,
     textAlign: 'center',
     lineHeight: 20,
@@ -40,7 +40,7 @@ export const useStyles = StyleSheet(theme => ({
     backgroundColor: theme.dark ? 'rgba(99,102,241,0.12)' : 'rgba(99,102,241,0.06)',
   },
   versionText: {
-    fontSize: 12,
+    fontSize: theme.size.text.T2,
     color: theme.dark ? '#818CF8' : '#6366F1',
     fontWeight: '500',
   },

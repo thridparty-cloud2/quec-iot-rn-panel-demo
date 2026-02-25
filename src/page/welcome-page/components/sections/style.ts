@@ -2,7 +2,7 @@ import {StyleSheet} from '@quec/panel-components-kit'
 
 export const useStyles = StyleSheet(theme => ({
   sectionTitle: {
-    fontSize: 13,
+    fontSize: theme.size.text.T2,
     fontWeight: '600',
     color: theme.colors.text.tertiary,
     textTransform: 'uppercase',
@@ -35,24 +35,24 @@ export const useStyles = StyleSheet(theme => ({
     marginRight: 14,
   },
   cardIcon: {
-    fontSize: 22,
+    fontSize: theme.size.text.T7,
   },
   cardContent: {
     flex: 1,
   },
   cardTitle: {
-    fontSize: 16,
+    fontSize: theme.size.text.T4,
     fontWeight: '600',
     color: theme.colors.text.primary,
     marginBottom: 3,
   },
   cardDesc: {
-    fontSize: 13,
+    fontSize: theme.size.text.T2,
     color: theme.colors.text.tertiary,
     lineHeight: 18,
   },
   cardArrow: {
-    fontSize: 18,
+    fontSize: theme.size.text.T5,
     color: theme.colors.text.tertiary,
     marginLeft: 8,
   },

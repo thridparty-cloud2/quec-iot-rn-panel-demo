@@ -15,7 +15,7 @@ const Hero: React.FC<HeroProps> = _props => {
       </View>
       <Text style={styles.title}>QuecPanel</Text>
       <Text style={styles.subtitle}>
-        移远 React Native 面板模板项目{'\n'}包含常用页面示例和组件用法
+        移远 React Native 面板示例{'\n'}包含常用页面示例和组件用法
       </Text>
       <View style={styles.versionBadge}>
         <Text style={styles.versionText}>v{pkg.version}</Text>
