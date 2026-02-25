@@ -5,7 +5,7 @@ import {
   useSetProps,
 } from '@quec/panel-device-kit'
 import {createDpsModelStore} from '@quec/panel-model-kit'
-import React, {FC, useEffect, useMemo, useState} from 'react'
+import React, {FC, useEffect, useMemo, useRef, useState} from 'react'
 import {
   deepmergeTheme,
   ThemeProvider,
@@ -57,6 +57,7 @@ const App: FC<Props> = props => {
   const [isInit, setIsInit] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(true)
   const [theme, setTheme] = useState(isDarkMode ? DarkTheme : LightTheme)
+  const customOverrides = useRef<DeepPartial<QuecTheme>>({})
 
   useEffect(() => {
     const getNativeAppTheme = async () => {
@@ -74,15 +75,17 @@ const App: FC<Props> = props => {
   }, [])
 
   useEffect(() => {
-    const next = deepmergeTheme(isDarkMode ? DarkTheme : LightTheme, {})
+    const next = deepmergeTheme(isDarkMode ? DarkTheme : LightTheme, customOverrides.current)
     setTheme(next)
   }, [isDarkMode])
 
   const preference = useMemo(() => {
     return {
       toggleDarkMode: () => setIsDarkMode(old => !old),
-      setTheme: (theme: DeepPartial<QuecTheme>) =>
-        setTheme(deepmergeTheme(isDarkMode ? DarkTheme : LightTheme, theme)),
+      setTheme: (overrides: DeepPartial<QuecTheme>) => {
+        customOverrides.current = {...customOverrides.current, ...overrides}
+        setTheme(deepmergeTheme(isDarkMode ? DarkTheme : LightTheme, customOverrides.current))
+      },
       theme,
     }
   }, [theme])
