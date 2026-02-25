@@ -37,3 +37,7 @@ export const PAGE_THEME_CONFIG = 'ThemeConfigPage'
  * 物模型列表数据
  */
 export const PAGE_DPS_LIST = 'DpsListPage';
+/**
+ * 物模型详情页
+ */
+export const PAGE_DPS_TSL_DETAIL = 'DpsTslDetailPage';

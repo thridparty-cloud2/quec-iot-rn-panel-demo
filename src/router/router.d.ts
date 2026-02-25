@@ -11,6 +11,7 @@
 
 import {SettingPageConfig} from '@quec/panel-universalsetting-component'
 import * as PAGES from '../config/route-page.config'
+import TSLModel from '@quec/panel-model-kit/dist/src/type/tsl/TSLModel'
 // NativeStackScreenProps 该类型采用 3 个泛型：
 // 我们之前定义的参数列表对象
 // 屏幕所属的路由名称
@@ -33,6 +34,11 @@ export type RootStackParamList = {
   [PAGES.PAGE_PRODUCT_MANUAL]: undefined
   [PAGES.PAGE_WELCOME]: undefined
   [PAGES.PAGE_DEVICE_INFO]: undefined
-    [PAGES.PAGE_THEME_CONFIG]: undefined;
-    [PAGES.PAGE_DPS_LIST]: undefined;
+  [PAGES.PAGE_THEME_CONFIG]: undefined
+  [PAGES.PAGE_DPS_LIST]: undefined
+  [PAGES.PAGE_DPS_TSL_DETAIL]:
+    | undefined
+    | {
+        tsl: TSLModel | undefined
+      }
 }

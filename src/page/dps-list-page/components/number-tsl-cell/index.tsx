@@ -1,13 +1,16 @@
 import React, {memo} from 'react'
-import {Text, View} from 'react-native'
+import {Text, TouchableOpacity, View} from 'react-native'
 import {NumberTSLModel, SUBTYPE_R} from '@quec/panel-model-kit'
 import {useStyles} from './style'
+import {useNavigation} from '../../../../hooks'
+import {PAGE_DPS_TSL_DETAIL} from '../../../../config/route-page.config'
 
 interface NumberTslProps {
   tsl: NumberTSLModel
 }
 
 const NumberTslCell: React.FC<NumberTslProps> = ({tsl}) => {
+  const navigation = useNavigation()
   const styles = useStyles()
   const min = tsl.min ?? 0
   const max = tsl.max ?? 100
@@ -16,7 +19,13 @@ const NumberTslCell: React.FC<NumberTslProps> = ({tsl}) => {
   const isReadonly = tsl.subType === SUBTYPE_R
 
   return (
-    <View style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      activeOpacity={0.8}
+      onPress={() => {
+        navigation.navigate(PAGE_DPS_TSL_DETAIL, {tsl})
+      }}
+    >
       {/* 头部：名称 + 类型标签 */}
       <View style={styles.header}>
         <Text style={styles.name}>{tsl.name}</Text>
@@ -60,7 +69,7 @@ const NumberTslCell: React.FC<NumberTslProps> = ({tsl}) => {
         )}
         <Text style={styles.footerText}>ID: {tsl.id}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 

@@ -18,8 +18,8 @@ const TslComponentMap: any = {
   [DATATYPE_INT]: NumberTslCell,
   [DATATYPE_FLOAT]: NumberTslCell,
   [DATATYPE_DOUBLE]: NumberTslCell,
-  [DATATYPE_ENUM]: EnumTslCell,
-  [DATATYPE_BOOL]: BoolTslCell,
+  // [DATATYPE_ENUM]: EnumTslCell,
+  // [DATATYPE_BOOL]: BoolTslCell,
 }
 
 export default function DpsListPage() {
