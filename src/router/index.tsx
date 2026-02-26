@@ -17,6 +17,7 @@ import DeviceInfoPage from '../page/device-info-page'
 import ThemeConfigPage from '../page/theme-config-page'
 import DpsListPage from '../page/dps-list-page'
 import DpsTslDetailPage from '../page/dps-tsl-detail-page'
+import HttpRequestPage from '../page/http-request-page'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -48,6 +49,9 @@ export const PageRoutes = {
   }),
   DpsListPage: new PageRouterImp(PAGES.PAGE_DPS_LIST, DpsListPage, {headerShown: false}),
   DpsTslDetailPage: new PageRouterImp(PAGES.PAGE_DPS_TSL_DETAIL, DpsTslDetailPage, {
+    headerShown: false,
+  }),
+  HttpRequestPage: new PageRouterImp(PAGES.PAGE_HTTP_REQUEST, HttpRequestPage, {
     headerShown: false,
   }),
 }

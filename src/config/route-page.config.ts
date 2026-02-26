@@ -41,3 +41,7 @@ export const PAGE_DPS_LIST = 'DpsListPage'
  * 物模型详情页
  */
 export const PAGE_DPS_TSL_DETAIL = 'DpsTslDetailPage'
+/**
+ * 网络请求示例
+ */
+export const PAGE_HTTP_REQUEST = 'HttpRequestPage'

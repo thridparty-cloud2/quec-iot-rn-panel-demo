@@ -42,4 +42,5 @@ export type RootStackParamList = {
         tsl: TSLModel | undefined
         dpsKey: string
       }
+  [PAGES.PAGE_HTTP_REQUEST]: undefined
 }

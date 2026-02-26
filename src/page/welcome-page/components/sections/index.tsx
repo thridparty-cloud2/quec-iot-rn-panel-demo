@@ -4,6 +4,7 @@ import {RootStackParamList} from '../../../../router/router'
 import {
   PAGE_DEVICE_INFO,
   PAGE_DPS_LIST,
+  PAGE_HTTP_REQUEST,
   PAGE_THEME_CONFIG,
 } from '../../../../config/route-page.config'
 import {useStyles} from './style'
@@ -36,6 +37,12 @@ const SECTIONS: SectionItem[] = [
     desc: '物模型展示与下发示例',
     icon: '♾️',
     route: PAGE_DPS_LIST,
+  },
+  {
+    title: '网络请求',
+    desc: '网络请求示例',
+    icon: '🌐',
+    route: PAGE_HTTP_REQUEST,
   },
 ]
 
