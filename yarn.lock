@@ -1234,8 +1234,8 @@
 
 "@quec/panel-sdk@0.1.0-beta.2":
   version "0.1.0-beta.2"
-  resolved "http://192.168.23.184:4873/@quec%2fpanel-sdk/-/panel-sdk-0.1.0-beta.2.tgz#8af6d0c06ecfc81d6b92f54978370587cb064926"
-  integrity sha512-VGHfw1hYz9Xbs2D6zibWuENuKsVxXOU//9X7YL/xDKG4ijy9e/m1HgLrb2fGgcw3+jIkTSvmLcUUaMmMe8yqVw==
+  resolved "http://192.168.23.184:4873/@quec%2fpanel-sdk/-/panel-sdk-0.1.0-beta.2.tgz#b5972e2b054eda11bd05cdfa70d97808c9de6735"
+  integrity sha512-x2jKhNbkjlgOvFSTkJ8E4sFy92xWz1Gpr35xUHMA1/zI/LGfw003Mxwn/ifXi6dSz9EW2J8Jf643hoRwbwim9Q==
 
 "@quec/panel-theme-kit-config@1.0.2", "@quec/panel-theme-kit-config@1.1.0", "@quec/panel-theme-kit-config@1.1.1":
   version "1.1.1"

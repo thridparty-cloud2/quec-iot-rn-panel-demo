@@ -27,7 +27,7 @@ export default function HttpRequestPage() {
   const styles = useStyles()
   const device = useDevice()
 
-  const [selectedEnv, setSelectedEnv] = useState<SaasEnv>(SaasEnv.UAT)
+  const [selectedEnv, setSelectedEnv] = useState<SaasEnv>(SaasEnv.PROD)
   const [response, setResponse] = useState<any>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
