@@ -73,7 +73,6 @@ export const useStyles = StyleSheet(theme => ({
     borderRadius: 12,
     paddingVertical: 14,
     alignItems: 'center',
-    marginBottom: 16,
     backgroundColor: theme.colors.brand.primary,
   },
   requestButtonText: {
@@ -169,8 +168,22 @@ export const useStyles = StyleSheet(theme => ({
     marginVertical: 10,
   },
 
+  // ── 悬浮按钮 ──
+  floatingButtonWrap: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    paddingBottom: 34,
+    backgroundColor: theme.colors.background.primary,
+    borderTopWidth: 1,
+    borderTopColor: theme.colors.border.dividerLight,
+  },
+
   // ── 底部间距 ──
   bottomSpacer: {
-    height: 40,
+    height: 80,
   },
 }))

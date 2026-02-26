@@ -1,12 +1,14 @@
-import React, {useState} from 'react'
+import React, {useMemo, useState} from 'react'
 import {Text, View, TouchableOpacity, ScrollView} from 'react-native'
 import {useDevice} from '@quec/panel-device-kit'
+import {to} from '@quec/panel-sdk/utils'
+import {httpSaasInstance, SaasEnv} from '@quec/panel-sdk/request'
+import SyntaxHighlighter from 'react-native-syntax-highlighter'
+import {obsidian} from 'react-syntax-highlighter/styles/hljs'
 
 import {useStyles} from './style'
 import QuecHeader from '../../components/quec-header'
-import {to} from '@quec/panel-sdk/utils'
 import {reqSaasExample} from '../../api/example'
-import {httpSaasInstance, SaasEnv} from '@quec/panel-sdk/request'
 
 /** 环境列表 */
 const ENV_OPTIONS: {label: string; value: SaasEnv; desc: string}[] = [
@@ -30,6 +32,35 @@ export default function HttpRequestPage() {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
+  const codeStr = useMemo(() => {
+    return `import { httpSaasInstance, SaasEnv } from '@quec/panel-sdk/request'
+import { to } from '@quec/panel-sdk/utils'
+import { useDevice } from '@quec/panel-device-kit'
+import { reqSaasExample } from './api/example'
+
+const handleRequest = async () => {
+  const device = useDevice()
+
+  // 1. 初始化环境
+  httpSaasInstance.init({ env: SaasEnv.${selectedEnv.toUpperCase()} })
+
+  // 2. 发起请求
+  const [err, res] = await to(
+    reqSaasExample({
+      productKey: device.productKey,
+      deviceKey: device.deviceKey,
+      endUserId: device.uid,
+    }),
+  )
+
+  if (err) {
+    console.error('请求失败', err.message)
+    return
+  }
+  console.log('请求成功', res)
+}`
+  }, [selectedEnv])
+
   const handleEnvChange = (env: SaasEnv) => {
     setSelectedEnv(env)
     httpSaasInstance.init({env})
@@ -40,8 +71,6 @@ export default function HttpRequestPage() {
       global.toast('设备信息为空，无法发起请求')
       return
     }
-
-    // 确保 init 了当前选中的环境
     httpSaasInstance.init({env: selectedEnv})
 
     setLoading(true)
@@ -91,41 +120,6 @@ export default function HttpRequestPage() {
           </View>
         </View>
 
-        {/* ── 环境选择器 ── */}
-        <Text style={styles.sectionTitle}>环境选择 SaasEnv</Text>
-        <View style={styles.card}>
-          <View style={styles.envGrid}>
-            {ENV_OPTIONS.map(item => {
-              const isActive = item.value === selectedEnv
-              return (
-                <TouchableOpacity
-                  key={item.value}
-                  style={[styles.envChip, isActive && styles.envChipActive]}
-                  activeOpacity={0.7}
-                  onPress={() => handleEnvChange(item.value)}
-                >
-                  <Text style={[styles.envChipText, isActive && styles.envChipTextActive]}>
-                    {item.label}
-                  </Text>
-                </TouchableOpacity>
-              )
-            })}
-          </View>
-          <Text style={styles.envHint}>
-            当前环境: {envDesc} ({selectedEnv})
-          </Text>
-        </View>
-
-        {/* ── 发起请求 ── */}
-        <TouchableOpacity
-          style={[styles.requestButton, loading && {opacity: 0.5}]}
-          activeOpacity={0.8}
-          onPress={handleRequest}
-          disabled={loading}
-        >
-          <Text style={styles.requestButtonText}>{loading ? '请求中...' : '发起请求'}</Text>
-        </TouchableOpacity>
-
         {/* ── 响应结果 ── */}
         <Text style={styles.sectionTitle}>响应结果</Text>
         <View style={styles.card}>
@@ -168,8 +162,60 @@ export default function HttpRequestPage() {
           )}
         </View>
 
+        {/* ── 环境选择器 ── */}
+        <Text style={styles.sectionTitle}>环境选择 SaasEnv</Text>
+        <View style={styles.card}>
+          <View style={styles.envGrid}>
+            {ENV_OPTIONS.map(item => {
+              const isActive = item.value === selectedEnv
+              return (
+                <TouchableOpacity
+                  key={item.value}
+                  style={[styles.envChip, isActive && styles.envChipActive]}
+                  activeOpacity={0.7}
+                  onPress={() => handleEnvChange(item.value)}
+                >
+                  <Text style={[styles.envChipText, isActive && styles.envChipTextActive]}>
+                    {item.label}
+                  </Text>
+                </TouchableOpacity>
+              )
+            })}
+          </View>
+          <Text style={styles.envHint}>
+            当前环境: {envDesc} ({selectedEnv})
+          </Text>
+        </View>
+
+        {/* ── 示例代码 ── */}
+        <Text style={styles.sectionTitle}>示例代码</Text>
+        <View style={styles.card}>
+          <SyntaxHighlighter
+            language="javascript"
+            style={obsidian}
+            highlighter="hljs"
+            PreTag={Text}
+            CodeTag={Text}
+            customStyle={{margin: 0, padding: 12, borderRadius: 8}}
+          >
+            {codeStr}
+          </SyntaxHighlighter>
+        </View>
+
         <View style={styles.bottomSpacer} />
       </ScrollView>
+
+      {/* ── 请求 ── */}
+      <View style={styles.floatingButtonWrap}>
+        <TouchableOpacity
+          style={[styles.requestButton, loading && {opacity: 0.5}]}
+          activeOpacity={0.8}
+          onPress={handleRequest}
+          disabled={loading}
+        >
+          <Text style={styles.requestButtonText}>{loading ? '请求中...' : '发起请求'}</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
