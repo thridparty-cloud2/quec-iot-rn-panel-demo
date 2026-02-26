@@ -15,9 +15,10 @@ export const useStyles = StyleSheet(theme => ({
     justifyContent: 'center',
     marginBottom: 20,
   },
-  logoText: {
-    color: '#000',
-    fontSize: 36,
+  logo: {
+    width: 50,
+    height: 50,
+    tintColor: theme.colors.brand.primary,
   },
   title: {
     fontSize: theme.size.text.T7,

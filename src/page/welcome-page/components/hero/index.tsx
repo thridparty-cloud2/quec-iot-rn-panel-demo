@@ -1,5 +1,5 @@
 import React, {memo, useEffect, useState, useCallback} from 'react'
-import {Text, View} from 'react-native'
+import {Text, View, Image} from 'react-native'
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -9,6 +9,7 @@ import Animated, {
 } from 'react-native-reanimated'
 import {useStyles} from './style'
 import pkg from '../../../../../package.json'
+import {getAssets} from '../../../../util/assets.util'
 
 const GREETINGS = [
   '你好',
@@ -72,7 +73,7 @@ const Hero: React.FC<HeroProps> = _props => {
   return (
     <View style={styles.heroSection}>
       <View style={styles.logoContainer}>
-        <Text style={styles.logoText}>📱</Text>
+        <Image source={getAssets('logo.png')} style={styles.logo} />
       </View>
       <Animated.Text style={[styles.title, animatedStyle]}>{GREETINGS[index]}</Animated.Text>
       <Text style={styles.subtitle}>
