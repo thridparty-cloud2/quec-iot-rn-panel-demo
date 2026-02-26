@@ -63,8 +63,8 @@ const EnumTslCell: React.FC<EnumTslProps> = ({tsl, dpsKey}) => {
 
       {/* 底部信息 */}
       <View style={styles.footer}>
-        <Text style={styles.footerText}>选项数: {options.length}</Text>
         <Text style={styles.footerText}>ID: {tsl.id}</Text>
+        <Text style={styles.footerText}>排序: {tsl.sort}</Text>
       </View>
     </TouchableOpacity>
   )

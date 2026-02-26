@@ -63,11 +63,8 @@ const NumberTslCell: React.FC<NumberTslProps> = ({tsl, dpsKey}) => {
 
       {/* 底部信息 */}
       <View style={styles.footer}>
-        <Text style={styles.footerText}>步长: {tsl.step ?? 1}</Text>
-        {tsl.decimalCount !== undefined && tsl.decimalCount > 0 && (
-          <Text style={styles.footerText}>小数位: {tsl.decimalCount}</Text>
-        )}
         <Text style={styles.footerText}>ID: {tsl.id}</Text>
+        <Text style={styles.footerText}>排序: {tsl.sort}</Text>
       </View>
     </TouchableOpacity>
   )
