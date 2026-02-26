@@ -1232,6 +1232,15 @@
     lodash.camelcase "4.3.0"
     lodash.clonedeep "4.5.0"
 
+"@quec/panel-model-kit@1.1.0-beta.3":
+  version "1.1.0-beta.3"
+  resolved "http://192.168.23.184:4873/@quec%2fpanel-model-kit/-/panel-model-kit-1.1.0-beta.3.tgz#1f1cfe7333878d323fefecf571a54f21f51e7f13"
+  integrity sha512-7floOihJdoLxQMppPkxgRWkf8L9Y9/hfCiGhHrvfuLVeVT1gDVjEzmbGVo2KSOuF1ON6XaAqWnu/tWW96NfbeA==
+  dependencies:
+    lodash "^4.17.21"
+    lodash.camelcase "4.3.0"
+    lodash.clonedeep "4.5.0"
+
 "@quec/panel-sdk@0.1.0-beta.1":
   version "0.1.0-beta.1"
   resolved "http://192.168.23.184:4873/@quec%2fpanel-sdk/-/panel-sdk-0.1.0-beta.1.tgz#bce436c540c2cca3e7b53cc43e3a8266a70ea43c"
