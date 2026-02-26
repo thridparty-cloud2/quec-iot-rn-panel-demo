@@ -14,6 +14,7 @@ import {
   DATATYPE_FLOAT,
   DATATYPE_INT,
 } from '@quec/panel-model-kit'
+import Tips from './components/tips'
 
 const TslDetailComponentMap: any = {
   [DATATYPE_INT]: NumberDetailCell,
@@ -44,6 +45,7 @@ export default function DpsTslDetailPage(props: Props) {
     <View style={styles.container}>
       <QuecHeader title={tsl.name} />
       <ScrollView>
+        <Tips tsl={tsl} />
         <Component tsl={tsl} dpsKey={dpsKey} />
       </ScrollView>
     </View>
