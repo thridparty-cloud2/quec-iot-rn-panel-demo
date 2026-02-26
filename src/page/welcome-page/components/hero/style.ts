@@ -25,6 +25,8 @@ export const useStyles = StyleSheet(theme => ({
     color: theme.colors.text.primary,
     marginBottom: 8,
     letterSpacing: 0.5,
+    height: 50,
+    lineHeight: 50,
   },
   subtitle: {
     fontSize: theme.size.text.T3,
