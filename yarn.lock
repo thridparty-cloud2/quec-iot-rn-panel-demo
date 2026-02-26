@@ -1205,14 +1205,13 @@
   resolved "http://192.168.23.184:4873/@quec%2fpanel-component-customer-attrs/-/panel-component-customer-attrs-1.1.3.tgz#5c30e6a524ceb6a5a7abb26e896591f6f37158b9"
   integrity sha512-pvV2JO+8J6ra614HgXx6eBtx+myS1HZyay3lcy7xlm3Hlt+WCZubW8cNI6Q/SPk07/AwVl+KBCD3mmpQZllcWg==
 
-"@quec/panel-components-kit@0.2.0-beta.1":
-  version "0.2.0-beta.1"
-  resolved "http://192.168.23.184:4873/@quec%2fpanel-components-kit/-/panel-components-kit-0.2.0-beta.1.tgz#0d36b5451e2af56bd24d6db9b4791aa7b7744ea0"
-  integrity sha512-J6iTXJ1DT3B53nTFdsFmZdK2XXwTW5BcAaIWMe0ALgwDvEcXkkptDR99aqmDO1dWRMKluqQYMcT31GldgjEc8A==
+"@quec/panel-components-kit@0.2.0-beta.2":
+  version "0.2.0-beta.2"
+  resolved "http://192.168.23.184:4873/@quec%2fpanel-components-kit/-/panel-components-kit-0.2.0-beta.2.tgz#54e8299f82d809cabf61544c305a7d1af56fbd91"
+  integrity sha512-OgNX71uW531Jo3WqIgRvjOQ0KA6+8kUAh/gdvnivcJdpBBNDp35uE9BJ4j2o8Vv8pSHfkmcWwdqXPM0yVzwblA==
   dependencies:
     lottie-react-native "5.1.4"
     moment "2.30.1"
-    react-native-device-info "^15.0.1"
     react-native-shadow-2 "^7.1.2"
     react-native-svg "12.4.4"
     react-native-theme-provider-next "^0.5.0"
@@ -1223,15 +1222,6 @@
   integrity sha512-07LM9kV96j3ct0sCO4xvTWVSiohWnqs0jtcJaXMR+QCXwvE91OqTtZsOs/EI1PWccege69JPdrCMqJ1KhXhDWw==
   dependencies:
     lodash.camelcase "4.3.0"
-
-"@quec/panel-model-kit@1.1.0-beta.1":
-  version "1.1.0-beta.1"
-  resolved "http://192.168.23.184:4873/@quec%2fpanel-model-kit/-/panel-model-kit-1.1.0-beta.1.tgz#24e40c1a0bda4f4fd235d01c9cc8e01bd650c3c4"
-  integrity sha512-Ohg2B6vKP8N5hVpAQt0bfxD5+qIviAt3pb3QjVfJPRH/u3Uf5WzfaLNhOsJYZII8LYGyHOybWdYFnWuJawikdg==
-  dependencies:
-    lodash "^4.17.21"
-    lodash.camelcase "4.3.0"
-    lodash.clonedeep "4.5.0"
 
 "@quec/panel-model-kit@1.1.0-beta.2":
   version "1.1.0-beta.2"
@@ -7173,11 +7163,6 @@ react-native-blob-util@0.16.2:
   dependencies:
     base-64 "0.1.0"
     glob "^7.1.6"
-
-react-native-device-info@^15.0.1:
-  version "15.0.2"
-  resolved "http://192.168.23.184:4873/react-native-device-info/-/react-native-device-info-15.0.2.tgz#c7de1bb6baeb07e1bab70159ad540c5705cb8dc0"
-  integrity sha512-dd71eXG2l3Cwp66IvKNadMTB8fhU3PEjyVddI97sYan+D4bgIAUmgGDhbSOFvHcGavksb2U17kiQYaDiK2WK2g==
 
 react-native-elements@3.4.2:
   version "3.4.2"
