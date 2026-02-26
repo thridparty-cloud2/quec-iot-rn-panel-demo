@@ -18,13 +18,13 @@ import {GlobalManager} from '@quec/panel-sdk/managers'
 
 import AppContainer from './AppContainer'
 import {setupI18n} from './i18n/helper'
-import {modelDefinition} from './types/model'
+import {DPSModel} from './types/model'
 import {DarkTheme, LightTheme} from './style/themes'
 
 // 初始化多语言
 setupI18n()
 // 初始化设备物模型状态管理
-export const {useDpsModel} = createDpsModelStore(modelDefinition)
+export const {useDpsModel} = createDpsModelStore<DPSModel>()
 
 // 初始化面板设备状态管理器
 createDeviceStore({})

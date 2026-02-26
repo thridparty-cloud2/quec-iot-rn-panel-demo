@@ -10,61 +10,61 @@ import {
 
 export type ModelsType = {}
 
-export const modelDefinition = {
+export interface DPSModel {
   /** 开关 RW BOOL */
-  switch: new BooleanTSLModel(),
+  switch?: BooleanTSLModel
   /** 温度设置 RW INT */
-  tempSet: new NumberTSLModel(),
+  tempSet?: NumberTSLModel
   /** 当前温度 R INT */
-  tempCurrent: new NumberTSLModel(),
+  tempCurrent?: NumberTSLModel
   /** 室内湿度 R INT */
-  humidity: new NumberTSLModel(),
+  humidity?: NumberTSLModel
   /** 模式 RW ENUM */
-  mode: new EnumTSLModel(),
+  mode?: EnumTSLModel
   /** 风速 RW ENUM */
-  windSpeed: new EnumTSLModel(),
+  windSpeed?: EnumTSLModel
   /** 舒适 RW BOOL */
-  comfort: new BooleanTSLModel(),
+  comfort?: BooleanTSLModel
   /** 强劲 RW BOOL */
-  strong: new BooleanTSLModel(),
+  strong?: BooleanTSLModel
   /** 静音 RW BOOL */
-  mute: new BooleanTSLModel(),
+  mute?: BooleanTSLModel
   /** 空清 RW BOOL */
-  anion: new BooleanTSLModel(),
+  anion?: BooleanTSLModel
   /** 健康 RW BOOL */
-  health: new BooleanTSLModel(),
+  health?: BooleanTSLModel
   /** 负离子 RW BOOL */
-  negativeIon: new BooleanTSLModel(),
+  negativeIon?: BooleanTSLModel
   /** 新风 RW BOOL */
-  freshAir: new BooleanTSLModel(),
+  freshAir?: BooleanTSLModel
   /** 自清洁 RW BOOL */
-  cleaning: new BooleanTSLModel(),
+  cleaning?: BooleanTSLModel
   /** 电加热 RW BOOL */
-  heat: new BooleanTSLModel(),
+  heat?: BooleanTSLModel
   /** 睡眠 RW BOOL */
-  sleep: new BooleanTSLModel(),
+  sleep?: BooleanTSLModel
   /** 屏显 RW BOOL */
-  display: new BooleanTSLModel(),
+  display?: BooleanTSLModel
   /** 灯光 RW BOOL */
-  light: new BooleanTSLModel(),
+  light?: BooleanTSLModel
   /** ECO模式 RW BOOL */
-  eco: new BooleanTSLModel(),
+  eco?: BooleanTSLModel
   /** 童锁 RW BOOL */
-  childLockMore: new BooleanTSLModel(),
+  childLockMore?: BooleanTSLModel
   /** 上下摆风 RW BOOL */
-  verticalSwing: new BooleanTSLModel(),
+  verticalSwing?: BooleanTSLModel
   /** 左右摆风 RW BOOL */
-  horizontalSwing: new BooleanTSLModel(),
+  horizontalSwing?: BooleanTSLModel
   /** 温度设置_F RW INT */
-  tempSetF: new NumberTSLModel(),
+  tempSetF?: NumberTSLModel
   /** 当前温度_F R INT */
-  tempCurrentF: new NumberTSLModel(),
+  tempCurrentF?: NumberTSLModel
   /** 节能 RW ENUM */
-  saveEnergy: new EnumTSLModel(),
+  saveEnergy?: EnumTSLModel
   /** 倒计时 RW STRUCT */
-  countdown: new StructTSLModel(),
+  countdown?: StructTSLModel
   /** 故障告警 R STRUCT */
-  fault: new StructTSLModel(),
+  fault?: StructTSLModel
   /** 温标 RW ENUM */
-  tempUnitSwitch: new EnumTSLModel(),
+  tempUnitSwitch?: EnumTSLModel
 }
