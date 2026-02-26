@@ -52,6 +52,17 @@ const lightenColor = (hex: string, ratio = 0.85): string => {
   return `#${lr.toString(16).padStart(2, '0')}${lg.toString(16).padStart(2, '0')}${lb.toString(16).padStart(2, '0')}`
 }
 
+/** 将 hex 颜色与黑色混合，生成深色变体 */
+const darkenColor = (hex: string, ratio = 0.7): string => {
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  const dr = Math.round(r * (1 - ratio))
+  const dg = Math.round(g * (1 - ratio))
+  const db = Math.round(b * (1 - ratio))
+  return `#${dr.toString(16).padStart(2, '0')}${dg.toString(16).padStart(2, '0')}${db.toString(16).padStart(2, '0')}`
+}
+
 export default function ThemeConfigPage() {
   const styles = useStyles()
   const preference: any = useContext(PreferencesContext)
@@ -66,7 +77,7 @@ export default function ThemeConfigPage() {
       colors: {
         brand: {
           primary: color,
-          primaryLight: lightenColor(color),
+          primaryLight: isDark ? darkenColor(color) : lightenColor(color),
         },
       },
     })
