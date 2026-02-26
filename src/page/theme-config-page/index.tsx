@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {View, Text, TouchableOpacity, ScrollView} from 'react-native'
 import {PreferencesContext} from '@quec/panel-components-kit'
 import {useStyles} from './style'
@@ -70,6 +70,17 @@ export default function ThemeConfigPage() {
   const colors = preference?.theme?.colors
   const currentBrand = colors?.brand?.primary ?? '#6366F1'
   const [selectedColor, setSelectedColor] = useState(currentBrand)
+
+  useEffect(() => {
+    preference?.setTheme({
+      colors: {
+        brand: {
+          primary: selectedColor,
+          primaryLight: isDark ? darkenColor(selectedColor) : lightenColor(selectedColor),
+        },
+      },
+    })
+  }, [isDark])
 
   const handleColorChange = (color: string) => {
     setSelectedColor(color)
