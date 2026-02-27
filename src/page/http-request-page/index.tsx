@@ -55,7 +55,7 @@ const handleRequest = async () => {
   const [err, res] = await to(
     httpSaasInstance.${reqMethod.toLowerCase()}({
       path: 'v2/aibiz/enduserapi/.../obtain',
-      ${reqMethod === 'GET' ? 'params' : 'httpBody'}: {
+      params: {
         productKey: device.productKey,
         deviceKey: device.deviceKey,
         endUserId: device.uid,
