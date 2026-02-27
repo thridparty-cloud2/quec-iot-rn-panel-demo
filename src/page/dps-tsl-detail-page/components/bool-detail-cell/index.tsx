@@ -39,7 +39,7 @@ const MyComponent = () => {
     })
   }
 
-  return null
+  return <></>
 }`
   }, [tsl.code, value])
 

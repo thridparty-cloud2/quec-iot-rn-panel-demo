@@ -50,8 +50,8 @@ export const useStyles = StyleSheet(theme => ({
   },
   infoCode: {
     fontFamily: 'monospace',
-    color: theme.colors.text.tertiary,
-    backgroundColor: theme.colors.background.tertiary,
+    color: theme.colors.brand.primary,
+    backgroundColor: theme.colors.brand.primaryLight,
     paddingHorizontal: 6,
     paddingVertical: 2,
     borderRadius: 4,
