@@ -9,6 +9,14 @@ import {obsidian} from 'react-syntax-highlighter/styles/hljs'
 import {useStyles} from './style'
 import QuecHeader from '../../components/quec-header'
 
+/** 请求方式 */
+const METHOD_OPTIONS: {label: string; value: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'}[] = [
+  {label: 'GET', value: 'GET'},
+  {label: 'POST', value: 'POST'},
+  {label: 'PUT', value: 'PUT'},
+  {label: 'DELETE', value: 'DELETE'},
+  {label: 'PATCH', value: 'PATCH'},
+]
 /** 环境列表 */
 const ENV_OPTIONS: {label: string; value: SaasEnv; desc: string}[] = [
   {label: 'PROD', value: SaasEnv.PROD, desc: '生产环境'},
@@ -27,6 +35,7 @@ export default function HttpRequestPage() {
   const device = useDevice()
 
   const [selectedEnv, setSelectedEnv] = useState<SaasEnv>(SaasEnv.PROD)
+  const [reqMethod, setReqMethod] = useState<'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'>('GET')
   const [response, setResponse] = useState<any>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
@@ -43,16 +52,16 @@ const handleRequest = async () => {
   httpSaasInstance.init({ env: SaasEnv.${selectedEnv.toUpperCase()} })
 
   // 2. 发起请求
-      const [err, res] = await to(
-      httpSaasInstance.get({
-        path: 'v2/aibiz/enduserapi/device/bot/variables/obtain',
-        params: {
-          productKey: device.productKey,
-          deviceKey: device.deviceKey,
-          endUserId: device.uid,
-        },
-      }),
-    )
+  const [err, res] = await to(
+    httpSaasInstance.${reqMethod.toLowerCase()}({
+      path: 'v2/aibiz/enduserapi/.../obtain',
+      ${reqMethod === 'GET' ? 'params' : 'httpBody'}: {
+        productKey: device.productKey,
+        deviceKey: device.deviceKey,
+        endUserId: device.uid,
+      },
+    }),
+  )
 
   if (err) {
     console.error('请求失败', err.message)
@@ -60,7 +69,7 @@ const handleRequest = async () => {
   }
   console.log('请求成功', res)
 }`
-  }, [selectedEnv])
+  }, [selectedEnv, reqMethod])
 
   const handleEnvChange = (env: SaasEnv) => {
     setSelectedEnv(env)
@@ -78,16 +87,30 @@ const handleRequest = async () => {
     setResponse(null)
     setError(null)
 
-    const [err, res] = await to(
-      httpSaasInstance.get({
+    let reqPromise
+    if (reqMethod === 'GET') {
+      reqPromise = httpSaasInstance.get({
         path: 'v2/aibiz/enduserapi/device/bot/variables/obtain',
         params: {
           productKey: device.productKey,
           deviceKey: device.deviceKey,
           endUserId: device.uid,
         },
-      }),
-    )
+      })
+    } else {
+      reqPromise = httpSaasInstance[reqMethod.toLowerCase() as 'post' | 'put' | 'delete' | 'patch'](
+        {
+          path: 'v2/aibiz/enduserapi/device/bot/variables/obtain',
+          httpBody: {
+            productKey: device.productKey,
+            deviceKey: device.deviceKey,
+            endUserId: device.uid,
+          },
+        },
+      )
+    }
+
+    const [err, res] = await to(reqPromise)
 
     setLoading(false)
 
@@ -116,7 +139,7 @@ const handleRequest = async () => {
         <View style={styles.card}>
           <View style={styles.apiInfoRow}>
             <View style={styles.apiMethodBadge}>
-              <Text style={styles.apiMethodText}>GET</Text>
+              <Text style={styles.apiMethodText}>{reqMethod}</Text>
             </View>
             <Text style={styles.apiPath} numberOfLines={2}>
               {API_PATH}
@@ -164,6 +187,28 @@ const handleRequest = async () => {
               <Text style={styles.emptyText}>点击上方按钮发起请求</Text>
             </View>
           )}
+        </View>
+
+        {/* ── 请求方式选择器 ── */}
+        <Text style={styles.sectionTitle}>请求方式 Method</Text>
+        <View style={styles.card}>
+          <View style={styles.envGrid}>
+            {METHOD_OPTIONS.map(item => {
+              const isActive = item.value === reqMethod
+              return (
+                <TouchableOpacity
+                  key={item.value}
+                  style={[styles.envChip, isActive && styles.envChipActive]}
+                  activeOpacity={0.7}
+                  onPress={() => setReqMethod(item.value)}
+                >
+                  <Text style={[styles.envChipText, isActive && styles.envChipTextActive]}>
+                    {item.label}
+                  </Text>
+                </TouchableOpacity>
+              )
+            })}
+          </View>
         </View>
 
         {/* ── 环境选择器 ── */}
