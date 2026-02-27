@@ -20,7 +20,7 @@ const NumberDetailCell: React.FC<NumberDetailCellProps> = ({tsl, dpsKey}) => {
   const tslWriter = useTslWriter()
   const [value, setValue] = useState(tsl.attributeValue)
   const [copied, setCopied] = useState(false)
-  const cTsl = dpsModel[dpsKey as keyof typeof dpsModel]
+  const cTsl: any = dpsModel[dpsKey as keyof typeof dpsModel]
 
   const codeStr = useMemo(() => {
     return `import { useTslWriter } from '@quec/panel-model-kit'
