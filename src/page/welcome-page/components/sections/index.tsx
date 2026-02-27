@@ -1,5 +1,5 @@
 import React, {memo, useCallback} from 'react'
-import {Text, View, TouchableOpacity} from 'react-native'
+import {Text, View, TouchableOpacity, Linking} from 'react-native'
 import {RootStackParamList} from '../../../../router/router'
 import {
   PAGE_DEVICE_INFO,
@@ -46,6 +46,21 @@ const SECTIONS: SectionItem[] = [
   },
 ]
 
+const DOC_SECTIONS = [
+  {
+    title: '面板 SDK 开发文档',
+    desc: '查阅最新开发文档与 API 参考',
+    icon: '📚',
+    url: 'https://quec-panel-sdk-docs.vercel.app/guides/create-project.html',
+  },
+  {
+    title: '答疑机器人',
+    desc: '飞书问题解答与技术支持',
+    icon: '🤖',
+    url: 'https://applink.feishu.cn/client/bot/open?appId=cli_a904649e2a381cbd',
+  },
+]
+
 const Sections: React.FC<SectionsProps> = _props => {
   const navigation = useNavigation()
   const styles = useStyles()
@@ -59,7 +74,26 @@ const Sections: React.FC<SectionsProps> = _props => {
 
   return (
     <>
-      <Text style={styles.sectionTitle}>示例章节</Text>
+      <Text style={styles.sectionTitle}>文档资源</Text>
+      {DOC_SECTIONS.map(item => (
+        <TouchableOpacity
+          key={item.url}
+          style={styles.card}
+          activeOpacity={0.8}
+          onPress={() => Linking.openURL(item.url)}
+        >
+          <View style={styles.cardIconContainer}>
+            <Text style={styles.cardIcon}>{item.icon}</Text>
+          </View>
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>{item.title}</Text>
+            <Text style={styles.cardDesc}>{item.desc}</Text>
+          </View>
+          <Text style={styles.cardArrow}>›</Text>
+        </TouchableOpacity>
+      ))}
+
+      <Text style={[styles.sectionTitle, {marginTop: 24}]}>示例章节</Text>
       {SECTIONS.map(item => (
         <TouchableOpacity
           key={item.route}
