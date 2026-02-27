@@ -8,7 +8,6 @@ import {obsidian} from 'react-syntax-highlighter/styles/hljs'
 
 import {useStyles} from './style'
 import QuecHeader from '../../components/quec-header'
-import {reqSaasExample} from '../../api/example'
 
 /** 环境列表 */
 const ENV_OPTIONS: {label: string; value: SaasEnv; desc: string}[] = [
@@ -36,7 +35,6 @@ export default function HttpRequestPage() {
     return `import { httpSaasInstance, SaasEnv } from '@quec/panel-sdk/request'
 import { to } from '@quec/panel-sdk/utils'
 import { useDevice } from '@quec/panel-device-kit'
-import { reqSaasExample } from './api/example'
 
 const handleRequest = async () => {
   const device = useDevice()
@@ -45,13 +43,16 @@ const handleRequest = async () => {
   httpSaasInstance.init({ env: SaasEnv.${selectedEnv.toUpperCase()} })
 
   // 2. 发起请求
-  const [err, res] = await to(
-    reqSaasExample({
-      productKey: device.productKey,
-      deviceKey: device.deviceKey,
-      endUserId: device.uid,
-    }),
-  )
+      const [err, res] = await to(
+      httpSaasInstance.get({
+        path: 'v2/aibiz/enduserapi/device/bot/variables/obtain',
+        params: {
+          productKey: device.productKey,
+          deviceKey: device.deviceKey,
+          endUserId: device.uid,
+        },
+      }),
+    )
 
   if (err) {
     console.error('请求失败', err.message)
@@ -78,10 +79,13 @@ const handleRequest = async () => {
     setError(null)
 
     const [err, res] = await to(
-      reqSaasExample({
-        productKey: device.productKey,
-        deviceKey: device.deviceKey,
-        endUserId: device.uid,
+      httpSaasInstance.get({
+        path: 'v2/aibiz/enduserapi/device/bot/variables/obtain',
+        params: {
+          productKey: device.productKey,
+          deviceKey: device.deviceKey,
+          endUserId: device.uid,
+        },
       }),
     )
 
