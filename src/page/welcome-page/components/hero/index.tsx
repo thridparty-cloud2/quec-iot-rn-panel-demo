@@ -1,5 +1,5 @@
 import React, {memo, useEffect, useState, useCallback} from 'react'
-import {Text, View, Image} from 'react-native'
+import {Text, View, Image, TouchableOpacity, Linking} from 'react-native'
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -72,9 +72,15 @@ const Hero: React.FC<HeroProps> = _props => {
 
   return (
     <View style={styles.heroSection}>
-      <View style={styles.logoContainer}>
+      <TouchableOpacity
+        style={styles.logoContainer}
+        activeOpacity={0.8}
+        onPress={() => {
+          Linking.openURL('https://applink.feishu.cn/client/bot/open?appId=cli_a904649e2a381cbd')
+        }}
+      >
         <Image source={getAssets('logo.png')} style={styles.logo} />
-      </View>
+      </TouchableOpacity>
       <Animated.Text style={[styles.title, animatedStyle]}>{GREETINGS[index]}</Animated.Text>
       <Text style={styles.subtitle}>
         移远 React Native 面板示例{'\n'}包含常用页面示例和组件用法
